@@ -1,0 +1,79 @@
+전기차 홍보
+
+- 전기차 소개
+- 전기차 종류 
+- 전기차 충전소 위치
+- 자유게시판 - 관리자 모드 
+- FAQ
+
+header.jsp 
+
+- 로그인, 회원가입은 modal
+
+	LoginController - 로그인 성공시 session에 id를 저장
+
+	LogoutController - 로그아웃시 session에 id를 제거
+
+	URIEncoder, 암호화
+
+	JoinController - 회원가입 성공시 table에 저장
+	(id중복 여부, 비밀번호 확인 - javascript 사용
+	, 전화번호 pattern 적용, email - type email 사용)
+
+- 전기차 소개 - introduce.jsp
+	
+	전기차 관련 정보를 직접 출력	
+	
+- 전기차 종류 - kind.jsp
+	
+	전기차 종류 및 소개
+	
+	상세소개 클릭 -> kindController -> carDetail.jsp(modal로 출력)  
+
+- 전기차 충전소 위치 검색 - search.jsp
+
+	전기차 충전소 검색
+
+	1. 검색창을 통한 검색(Ajax사용)
+
+	2, 분류를 통한 검색(지역, 충전속도)
+
+	-> searchController 
+	
+	-> 검색 조건에 해당하는 충전소 목록 출력
+
+	-> 내용 클릭시 -> searchController -> stationDetail.jsp(modal로 출력)
+
+	(시간 여유시 EV홈페이지 참조)	
+
+- 자유게시판(회원만 상세 보기 및 다른 기능 가능) - 관리자 모드 - FreeController
+
+	-> 전체 목록(페이지 추가)
+	글쓰기(공지 여부 추가 - 공지시에 상단으로 올리기) - freeWrite.jsp
+	
+	-> FreeController ->	수정(작성자만 가능)
+				삭제(작성자 및 관리자만 가능)
+				상세 보기
+
+- FAQ - FAQController
+	
+	-> 목록 출력(FAQ.jsp) -> 목록에 있는 내용 클릭 -> FAQController
+
+	-> FAQDetail.jsp
+
+- 마이페이지
+
+	정보수정 -> updateController
+	회원탈퇴 -> updateController
+
+- 회원관리(관리자만)
+
+	회원 명단 출력 -> memberListController
+	회원 상세정보 -> memberListController
+	회원 강퇴 -> memberListController
+
+Main.jsp
+
+- 차 이미지, 소개글
+
+controller -> dao(DTO LIST 요구) -> controller -> reqeust객체 jsp
