@@ -5,6 +5,7 @@ public class Car {
 
 	/* 변수 */
 	private int carNum;
+	private String carName;
 	private int carPrice;
 	private String carSize;
 	private int carMaxDistance;
@@ -13,9 +14,10 @@ public class Car {
 	
 	/* 생성자 */ 
 	public Car() {}
-	public Car(int carNum, int carPrice, String carSize, int carMaxDistance, String carEfficiency, String carImgSrc) {
+	public Car(int carNum, String carName,int carPrice, String carSize, int carMaxDistance, String carEfficiency, String carImgSrc) {
 		super();
 		this.carNum = carNum;
+		this.carName = carName;
 		this.carPrice = carPrice;
 		this.carSize = carSize;
 		this.carMaxDistance = carMaxDistance;
@@ -60,7 +62,12 @@ public class Car {
 	public void setCarImgSrc(String carImgSrc) {
 		this.carImgSrc = carImgSrc;
 	}
-	
+	public String getCarName() {
+		return this.carName;
+	}
+	public void setCarName(String carName) {
+		this.carName = carName;
+	}
 	/* 함수 */
 	@Override
 	public String toString() {
@@ -77,6 +84,8 @@ public class Car {
 		builder.append(carEfficiency);
 		builder.append(", carImgSrc=");
 		builder.append(carImgSrc);
+		builder.append(", carName=");
+		builder.append(carName);
 		builder.append("]");
 		return builder.toString();
 	}

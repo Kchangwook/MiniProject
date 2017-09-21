@@ -1,4 +1,4 @@
---system[Admin계정에서 evcar계정 생성&권한부여
+﻿--system[Admin계정에서 evcar계정 생성&권한부여
 create user evcar identified by 1234;
 grant connect,resource,dba to evcar;
 
@@ -19,6 +19,7 @@ create sequence faq_num start with 1 increment by 1;
 
 create table Car(
 car_num	            NUMBER,
+car_name		varchar2(50)	not null,
 car_price	        NUMBER          not null,
 car_size	        VARCHAR2(20)    not null,
 car_max_distance	NUMBER          not null,
