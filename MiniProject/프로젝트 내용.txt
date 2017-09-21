@@ -77,3 +77,6 @@ Main.jsp
 - 차 이미지, 소개글
 
 controller -> dao(DTO LIST 요구) -> controller -> reqeust객체 jsp
+
+계정: evcar
+비밀번호: 1234
