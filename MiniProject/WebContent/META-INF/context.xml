@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+	<Resource name="jdbc/myoracle" auth="Container"
+              type="javax.sql.DataSource" driverClassName="oracle.jdbc.OracleDriver"
+              url="jdbc:oracle:thin:@localhost:1521:xe"
+              username="evcar" password="1234" maxTotal="20" maxIdle="10"
+              maxWaitMillis="-1"/>
+              <!-- maxTotal:최대 접속자 수 maxIdle=상시 대기 요청 수 -->
+</Context>
