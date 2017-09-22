@@ -22,8 +22,8 @@ car_num	            NUMBER,
 car_name		varchar2(50)	not null,
 car_price	        NUMBER          not null,
 car_size	        VARCHAR2(20)    not null,
-car_max_distance	NUMBER          not null,
-car_efficiency	    VARCHAR2(20)    not null,
+car_max_distance	NUMBER      ,
+car_efficiency	    VARCHAR2(20)    ,
 car_img_src	        VARCHAR2(200)   not null,
 constraint car_num_pk primary key(car_num)
 );
