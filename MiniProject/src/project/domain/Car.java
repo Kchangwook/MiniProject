@@ -68,6 +68,7 @@ public class Car {
 	public void setCarName(String carName) {
 		this.carName = carName;
 	}
+	
 	/* ÇÔ¼ö */
 	@Override
 	public String toString() {
