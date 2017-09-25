@@ -1,14 +1,14 @@
 package project.domain;
 
-/** DBÀÇ FAQ TableÀÇ Á¤º¸¸¦ ÀúÀåÇÏ±â À§ÇÑ Å¬·¡½º */
+/** DBë¡œë¶€í„° Car Tableì˜ ì •ë³´ë¥¼ ë‹´ì„ í´ë˜ìŠ¤*/
 public class FAQ {
 
-	/* º¯¼ö */
+	/* ë³€ìˆ˜ */
 	private int faqNum;
 	private String faqTitle;
 	private String faqContent;
 	
-	/* »ı¼ºÀÚ */
+	/* ìƒì„±ì */
 	public FAQ() {}
 	public FAQ(int faqNum, String faqTitle, String faqContent) {
 		super();
@@ -17,7 +17,7 @@ public class FAQ {
 		this.faqContent = faqContent;
 	}
 	
-	/* Á¢±ÙÀÚ, ¼öÁ¤ÀÚ */
+	/* ì ‘ê·¼ì, ìˆ˜ì •ì */
 	public int getFaqNum() {
 		return faqNum;
 	}
@@ -37,7 +37,7 @@ public class FAQ {
 		this.faqContent = faqContent;
 	}
 	
-	/* ÇÔ¼ö */
+	/*í•¨ìˆ˜ */
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
