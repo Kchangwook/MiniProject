@@ -1,20 +1,23 @@
 package project.domain;
 
-/** DBÀÇ Station TableÀÇ Á¤º¸¸¦ ÀúÀåÇÏ±â À§ÇÑ Å¬·¡½º */
+/** DBï¿½ï¿½ Station Tableï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ */
 public class Station {
-
-	/* º¯¼ö */
+	/* ë³€ìˆ˜ */
 	private int stationNum;
 	private String statingAddr;
 	private String stationCsnm;
 	private String stationCpnm;
-	private int stationLat;
-	private int stationLongi;
+	private double stationLat;
+	private double stationLongi;
+	private int stationCsid;
+	private int stationCptp;
+	private int stationCpstat;
+	private String stationStatUpdate;
 	
-	/* »ı¼ºÀÚ */
+	/* ìƒì„±ì */
 	public Station() {}
-	public Station(int stationNum, String statingAddr, String stationCsnm, String stationCpnm, int stationLat,
-			int stationLongi) {
+	public Station(int stationNum, String statingAddr, String stationCsnm, String stationCpnm, double stationLat,
+			double stationLongi, int stationCsid, int stationCptp, int stationCpstat, String stationStatUpdate) {
 		super();
 		this.stationNum = stationNum;
 		this.statingAddr = statingAddr;
@@ -22,9 +25,13 @@ public class Station {
 		this.stationCpnm = stationCpnm;
 		this.stationLat = stationLat;
 		this.stationLongi = stationLongi;
+		this.stationCsid = stationCsid;
+		this.stationCptp = stationCptp;
+		this.stationCpstat = stationCpstat;
+		this.stationStatUpdate = stationStatUpdate;
 	}
-	
-	/* ¼³Á¤ÀÚ ¼öÁ¤ÀÚ */
+
+	/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
 	public int getStationNum() {
 		return stationNum;
 	}
@@ -49,20 +56,44 @@ public class Station {
 	public void setStationCpnm(String stationCpnm) {
 		this.stationCpnm = stationCpnm;
 	}
-	public int getStationLat() {
+	public double getStationLat() {
 		return stationLat;
 	}
-	public void setStationLat(int stationLat) {
+	public void setStationLat(double stationLat) {
 		this.stationLat = stationLat;
 	}
-	public int getStationLongi() {
+	public double getStationLongi() {
 		return stationLongi;
 	}
-	public void setStationLongi(int stationLongi) {
+	public void setStationLongi(double stationLongi) {
 		this.stationLongi = stationLongi;
 	}
+	public int getStationCsid() {
+		return stationCsid;
+	}
+	public void setStationCsid(int stationCsid) {
+		this.stationCsid = stationCsid;
+	}
+	public int getStationCptp() {
+		return stationCptp;
+	}
+	public void setStationCptp(int stationCptp) {
+		this.stationCptp = stationCptp;
+	}
+	public int getStationCpstat() {
+		return stationCpstat;
+	}
+	public void setStationCpstat(int stationCpstat) {
+		this.stationCpstat = stationCpstat;
+	}
+	public String getStationStatUpdate() {
+		return stationStatUpdate;
+	}
+	public void setStationStatUpdate(String stationStatUpdate) {
+		this.stationStatUpdate = stationStatUpdate;
+	}
 	
-	/* ÇÔ¼ö */
+	/* ï¿½Ô¼ï¿½ */
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
@@ -78,8 +109,15 @@ public class Station {
 		builder.append(stationLat);
 		builder.append(", stationLongi=");
 		builder.append(stationLongi);
+		builder.append(", stationCsid=");
+		builder.append(stationCsid);
+		builder.append(", stationCptp=");
+		builder.append(stationCptp);
+		builder.append(", stationCpstat=");
+		builder.append(stationCpstat);
+		builder.append(", stationStatUpdate=");
+		builder.append(stationStatUpdate);
 		builder.append("]");
 		return builder.toString();
 	}
-	
 }//end of Station

@@ -16,20 +16,15 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
+import project.domain.Station;
 import project.util.ConnectURL;
 
 public class StationParse {
-
 		
-	   public static void main(String args[]) throws Exception{
-		   StationParse i = new StationParse();
-		   System.out.println(i.parse());
-	   }
-
-	   public List<Map<String,String>> parse() throws Exception{
+	   public List<Station> parse() throws Exception{
 	      StringBuilder urlBuilder = new StringBuilder();
 	      Document document = null;
-	      List<Map<String,String>> list = new ArrayList<Map<String,String>>();
+	      List<Station> list = new ArrayList<Station>();
 	      
 	      try {
 	         urlBuilder.append("http://openapi.kepco.co.kr/service/evInfoService/getEvSearchList");
@@ -56,19 +51,30 @@ public class StationParse {
 	      for(int i = 0; i < nodelist.getLength(); i++) {
 	         Node node = nodelist.item(i);
 	         if(node.getNodeType()==Node.ELEMENT_NODE) {
-	        	 map = new HashMap<>();
 	            Element e = (Element) node;
 	            Node temp = null;
-	            String[] getTag = {"cpId","addr","csNm","cpNm","lat","longi","csId","cpTp","cpStat","statUpdateDatetime"};
-	            for(int j=0;j<getTag.length;j++) {
-	               if((temp = e.getElementsByTagName(getTag[j]).item(0)) != null) {
-	            	  map.put(getTag[j],temp.getFirstChild().getTextContent());
-	               }
-	            }
-	            list.add(map);
+	            list.add(new Station(Integer.parseInt(e.getElementsByTagName("cpId").item(0).getFirstChild().getTextContent()),
+	            		e.getElementsByTagName("addr").item(0).getFirstChild().getTextContent(),
+	            		e.getElementsByTagName("csNm").item(0).getFirstChild().getTextContent(),
+	            		e.getElementsByTagName("cpNm").item(0).getFirstChild().getTextContent(),
+	            		Double.parseDouble(e.getElementsByTagName("lat").item(0).getFirstChild().getTextContent()),
+	            		Double.parseDouble(e.getElementsByTagName("longi").item(0).getFirstChild().getTextContent()),
+	            		Integer.parseInt(e.getElementsByTagName("csId").item(0).getFirstChild().getTextContent()),
+	            		Integer.parseInt(e.getElementsByTagName("cpTp").item(0).getFirstChild().getTextContent()),
+	            		Integer.parseInt(e.getElementsByTagName("cpStat").item(0).getFirstChild().getTextContent()),
+	            		e.getElementsByTagName("statUpdateDatetime").item(0).getFirstChild().getTextContent()
+	            		));
 	         }
 	      }
 	      return list;
 	   }
+	   
+	   public static void main(String[] args) {
+		   try {
+			System.out.println(new StationParse().parse());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 	}
 

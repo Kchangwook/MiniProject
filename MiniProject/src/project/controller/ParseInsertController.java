@@ -7,19 +7,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import project.dao.MemberDAO;
-import project.domain.Member;
+import project.dao.StationDAO;
 
-/**
- * Servlet implementation class LoginController
- */
-@WebServlet("/login.do")
-public class LoginController extends HttpServlet {
-       
+@WebServlet("/parse.do")
+public class ParseInsertController extends HttpServlet {
+
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
-/*		Member m = MemberDAO.getMember(id);
-		request.getSession().setAttribute("id",id );;*/
+			try {
+				new StationDAO().add();
+			} catch (Exception e) {
+				request.setCharacterEncoding("UTF-8");
+				response.setContentType("text/html;charset=UTF-8");
+				e.printStackTrace();
+				response.getWriter().println(e.getMessage());
+			}
 	}
 
 }

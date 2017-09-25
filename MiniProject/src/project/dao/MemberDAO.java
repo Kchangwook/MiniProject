@@ -1,5 +1,6 @@
 package project.dao;
 
+import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,22 +10,23 @@ import java.util.List;
 
 import project.domain.Member;
 import project.util.DBUtil;
+import project.util.SHAUtil;
 
 public class MemberDAO {
 	//회원가입
-	public static int MemberJoin(Member m) throws Exception {
+	public static int add(Member m) throws Exception {
 		Connection con = DBUtil.getConnection();
 		PreparedStatement pstmt = null;
 		int result = -1;
 		try {
-			pstmt = con.prepareStatement("INSERT INTO member VALUES(?,?,?,?,?,?,?");
-			pstmt.setString(1,m.getMemberID());
-			pstmt.setString(2,m.getMemberPwd());
+			pstmt = con.prepareStatement("INSERT INTO member VALUES(?,?,?,?,?,?");
+			pstmt.setString(1,m.getMemberMail());
+			List<String> list = SHAUtil.encodePwd(m.getMemberPwd());
+			pstmt.setString(2,list.get(1));
 			pstmt.setString(3,m.getMemberName());
-			pstmt.setString(4,m.getMemberMail());
-			pstmt.setString(5,m.getMemberAddr());
-			pstmt.setString(6,m.getMemberPhone());
-			pstmt.setInt(7,m.getMemberLevel());
+			pstmt.setString(4,m.getMemberAddr());
+			pstmt.setString(5,m.getMemberPhone());
+			pstmt.setInt(6,0);//일반회원 0 관리자 1
 			result = pstmt.executeUpdate();
 		}catch (SQLException e){
 			throw new Exception("회원 가입에 실패하였습니다.");
@@ -36,17 +38,16 @@ public class MemberDAO {
 	}
 	
 	//회원테이블 보기(관리자)
-	public static List<Member> MemberTable() throws SQLException{
+	public static List<Member> table() throws SQLException{
 		Connection con = DBUtil.getConnection();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		List<Member> list = new ArrayList<Member>();
-		//Q1)id를 메일로 합치는건 어떤지..
 		try {
-			pstmt = con.prepareStatement("SELECT id,name,mail,addr,phone,level FROM station");
+			pstmt = con.prepareStatement("SELECT member_mail,member_name,member_addr,member_phone,member_level FROM member");
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
-				list.add(new Member(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getInt(7)));
+				list.add(new Member(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getInt(6)));
 			}
 		}finally {
 			DBUtil.close(con, pstmt, rs);
@@ -55,17 +56,51 @@ public class MemberDAO {
 	}
 	
 	//회원 삭제(관리자)
-	public static boolean MemberDelete(String id) throws SQLException {
+	public static boolean delete(String memberMail) throws SQLException {
 		Connection con = DBUtil.getConnection();
 		PreparedStatement pstmt = null;
 		boolean result = false;
 		try {
-			pstmt = con.prepareStatement("DELETE member where id = ?");
-			pstmt.setString(1, id);
+			pstmt = con.prepareStatement("DELETE member WHERE member_mail LIKE ?@%");
+			pstmt.setString(1, memberMail);
 			result = pstmt.execute();
 		}finally {
 			DBUtil.close(con, pstmt);
 		}
 		return result;
+	}
+	
+	//회원 로그인
+	public static boolean login(String memberMail,String memberPwd) throws SQLException, NoSuchAlgorithmException {
+		Connection con = DBUtil.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		boolean result = false;
+		try {
+			pstmt = con.prepareStatement("SELECT member_name,member_pwd,member_salt FROM member WHERE member_mail LIKE ?");
+			pstmt.setString(1, memberMail);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				result = SHAUtil.decodePwd(rs, memberPwd);
+			}
+		}finally {
+			DBUtil.close(con, pstmt, rs);
+		}
+		return result;
+	}
+	
+	//아이디에 해당하는 멤버
+	public static Member getMember(String id) throws SQLException {
+		Connection con = DBUtil.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		Member loginId = null;
+		pstmt = con.prepareStatement("SELECT * FROM member WHERE member_mail = ?");
+		pstmt.setString(1, id);
+		rs = pstmt.executeQuery();
+		if(rs.next()) {
+			loginId = new Member(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getInt(6));
+		}
+		return loginId;
 	}
 }//end of MemberDAO

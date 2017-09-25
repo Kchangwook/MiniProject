@@ -1,82 +1,82 @@
-Àü±âÂ÷ È«º¸
+ì „ê¸°ì°¨ í™ë³´
 
-- Àü±âÂ÷ ¼Ò°³
-- Àü±âÂ÷ Á¾·ù 
-- Àü±âÂ÷ ÃæÀü¼Ò À§Ä¡
-- ÀÚÀ¯°Ô½ÃÆÇ - °ü¸®ÀÚ ¸ğµå 
+- ì „ê¸°ì°¨ ì†Œê°œ
+- ì „ê¸°ì°¨ ì¢…ë¥˜ 
+- ì „ê¸°ì°¨ ì¶©ì „ì†Œ ìœ„ì¹˜
+- ììœ ê²Œì‹œíŒ - ê´€ë¦¬ì ëª¨ë“œ 
 - FAQ
 
 header.jsp 
 
-- ·Î±×ÀÎ, È¸¿ø°¡ÀÔÀº modal
+- ë¡œê·¸ì¸, íšŒì›ê°€ì…ì€ modal
 
-	LoginController - ·Î±×ÀÎ ¼º°ø½Ã session¿¡ id¸¦ ÀúÀå
+   LoginController - ë¡œê·¸ì¸ ì„±ê³µì‹œ sessionì— idë¥¼ ì €ì¥
 
-	LogoutController - ·Î±×¾Æ¿ô½Ã session¿¡ id¸¦ Á¦°Å
+   LogoutController - ë¡œê·¸ì•„ì›ƒì‹œ sessionì— idë¥¼ ì œê±°
 
-	URIEncoder, ¾ÏÈ£È­
+   URIEncoder, ì•”í˜¸í™”
 
-	JoinController - È¸¿ø°¡ÀÔ ¼º°ø½Ã table¿¡ ÀúÀå
-	(idÁßº¹ ¿©ºÎ, ºñ¹Ğ¹øÈ£ È®ÀÎ - javascript »ç¿ë
-	, ÀüÈ­¹øÈ£ pattern Àû¿ë, email - type email »ç¿ë)
+   JoinController - íšŒì›ê°€ì… ì„±ê³µì‹œ tableì— ì €ì¥
+   (idì¤‘ë³µ ì—¬ë¶€, ë¹„ë°€ë²ˆí˜¸ í™•ì¸ - javascript ì‚¬ìš©
+   , ì „í™”ë²ˆí˜¸ pattern ì ìš©, email - type email ì‚¬ìš©)
 
-- Àü±âÂ÷ ¼Ò°³ - introduce.jsp
-	
-	Àü±âÂ÷ °ü·Ã Á¤º¸¸¦ Á÷Á¢ Ãâ·Â	
-	
-- Àü±âÂ÷ Á¾·ù - kind.jsp
-	
-	Àü±âÂ÷ Á¾·ù ¹× ¼Ò°³
-	
-	»ó¼¼¼Ò°³ Å¬¸¯ -> kindController -> carDetail.jsp(modal·Î Ãâ·Â)  
+- ì „ê¸°ì°¨ ì†Œê°œ - introduce.jsp
+   
+   ì „ê¸°ì°¨ ê´€ë ¨ ì •ë³´ë¥¼ ì§ì ‘ ì¶œë ¥   
+   
+- ì „ê¸°ì°¨ ì¢…ë¥˜ - kind.jsp
+   
+   ì „ê¸°ì°¨ ì¢…ë¥˜ ë° ì†Œê°œ
+   
+   ìƒì„¸ì†Œê°œ í´ë¦­ -> kindController -> carDetail.jsp(modalë¡œ ì¶œë ¥)  
 
-- Àü±âÂ÷ ÃæÀü¼Ò À§Ä¡ °Ë»ö - search.jsp
+- ì „ê¸°ì°¨ ì¶©ì „ì†Œ ìœ„ì¹˜ ê²€ìƒ‰ - search.jsp
 
-	Àü±âÂ÷ ÃæÀü¼Ò °Ë»ö
+   ì „ê¸°ì°¨ ì¶©ì „ì†Œ ê²€ìƒ‰
 
-	1. °Ë»öÃ¢À» ÅëÇÑ °Ë»ö(Ajax»ç¿ë)
+   1. ê²€ìƒ‰ì°½ì„ í†µí•œ ê²€ìƒ‰(Ajaxì‚¬ìš©)
 
-	2, ºĞ·ù¸¦ ÅëÇÑ °Ë»ö(Áö¿ª, ÃæÀü¼Óµµ)
+   2, ë¶„ë¥˜ë¥¼ í†µí•œ ê²€ìƒ‰(ì§€ì—­, ì¶©ì „ì†ë„)
 
-	-> searchController 
-	
-	-> °Ë»ö Á¶°Ç¿¡ ÇØ´çÇÏ´Â ÃæÀü¼Ò ¸ñ·Ï Ãâ·Â
+   -> searchController 
+   
+   -> ê²€ìƒ‰ ì¡°ê±´ì— í•´ë‹¹í•˜ëŠ” ì¶©ì „ì†Œ ëª©ë¡ ì¶œë ¥
 
-	-> ³»¿ë Å¬¸¯½Ã -> searchController -> stationDetail.jsp(modal·Î Ãâ·Â)
+   -> ë‚´ìš© í´ë¦­ì‹œ -> searchController -> stationDetail.jsp(modalë¡œ ì¶œë ¥)
 
-	(½Ã°£ ¿©À¯½Ã EVÈ¨ÆäÀÌÁö ÂüÁ¶)	
+   (ì‹œê°„ ì—¬ìœ ì‹œ EVí™ˆí˜ì´ì§€ ì°¸ì¡°)   
 
-- ÀÚÀ¯°Ô½ÃÆÇ(È¸¿ø¸¸ »ó¼¼ º¸±â ¹× ´Ù¸¥ ±â´É °¡´É) - °ü¸®ÀÚ ¸ğµå - FreeController
+- ììœ ê²Œì‹œíŒ(íšŒì›ë§Œ ìƒì„¸ ë³´ê¸° ë° ë‹¤ë¥¸ ê¸°ëŠ¥ ê°€ëŠ¥) - ê´€ë¦¬ì ëª¨ë“œ - FreeController
 
-	-> ÀüÃ¼ ¸ñ·Ï(ÆäÀÌÁö Ãß°¡)
-	±Û¾²±â(°øÁö ¿©ºÎ Ãß°¡ - °øÁö½Ã¿¡ »ó´ÜÀ¸·Î ¿Ã¸®±â) - freeWrite.jsp
-	
-	-> FreeController ->	¼öÁ¤(ÀÛ¼ºÀÚ¸¸ °¡´É)
-				»èÁ¦(ÀÛ¼ºÀÚ ¹× °ü¸®ÀÚ¸¸ °¡´É)
-				»ó¼¼ º¸±â
+   -> ì „ì²´ ëª©ë¡(í˜ì´ì§€ ì¶”ê°€)
+   ê¸€ì“°ê¸°(ê³µì§€ ì—¬ë¶€ ì¶”ê°€ - ê³µì§€ì‹œì— ìƒë‹¨ìœ¼ë¡œ ì˜¬ë¦¬ê¸°) - freeWrite.jsp
+   
+   -> FreeController ->   ìˆ˜ì •(ì‘ì„±ìë§Œ ê°€ëŠ¥)
+            ì‚­ì œ(ì‘ì„±ì ë° ê´€ë¦¬ìë§Œ ê°€ëŠ¥)
+            ìƒì„¸ ë³´ê¸°
 
 - FAQ - FAQController
-	
-	-> ¸ñ·Ï Ãâ·Â(FAQ.jsp) -> ¸ñ·Ï¿¡ ÀÖ´Â ³»¿ë Å¬¸¯ -> FAQController
+   
+   -> ëª©ë¡ ì¶œë ¥(FAQ.jsp) -> ëª©ë¡ì— ìˆëŠ” ë‚´ìš© í´ë¦­ -> FAQController
 
-	-> FAQDetail.jsp
+   -> FAQDetail.jsp
 
-- ¸¶ÀÌÆäÀÌÁö
+- ë§ˆì´í˜ì´ì§€
 
-	Á¤º¸¼öÁ¤ -> updateController
-	È¸¿øÅ»Åğ -> updateController
+   ì •ë³´ìˆ˜ì • -> updateController
+   íšŒì›íƒˆí‡´ -> updateController
 
-- È¸¿ø°ü¸®(°ü¸®ÀÚ¸¸)
+- íšŒì›ê´€ë¦¬(ê´€ë¦¬ìë§Œ)
 
-	È¸¿ø ¸í´Ü Ãâ·Â -> memberListController
-	È¸¿ø »ó¼¼Á¤º¸ -> memberListController
-	È¸¿ø °­Åğ -> memberListController
+   íšŒì› ëª…ë‹¨ ì¶œë ¥ -> memberListController
+   íšŒì› ìƒì„¸ì •ë³´ -> memberListController
+   íšŒì› ê°•í‡´ -> memberListController
 
 Main.jsp
 
-- Â÷ ÀÌ¹ÌÁö, ¼Ò°³±Û
+- ì°¨ ì´ë¯¸ì§€, ì†Œê°œê¸€
 
-controller -> dao(DTO LIST ¿ä±¸) -> controller -> reqeust°´Ã¼ jsp
+controller -> dao(DTO LIST ìš”êµ¬) -> controller -> reqeustê°ì²´ jsp
 
-°èÁ¤: evcar
-ºñ¹Ğ¹øÈ£: 1234
+ê³„ì •: evcar
+ë¹„ë°€ë²ˆí˜¸: 1234

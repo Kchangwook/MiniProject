@@ -1,37 +1,43 @@
 package project.domain;
 
-/** DBÀÇ Member TableÀÇ Á¤º¸¸¦ ÀúÀåÇÏ±â À§ÇÑ Å¬·¡½º */
+/** DBï¿½ï¿½ Member Tableï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ */
 public class Member {
 
-	/* º¯¼ö */
-	private String memberID;
+	/* ë³€ìˆ˜ */
+	private String memberMail;
 	private String memberPwd;
 	private String memberName;
-	private String memberMail;
 	private String memberAddr;
 	private String memberPhone;
 	private int memberLevel;
 	
-	/* »ı¼ºÀÚ */
+	/* ìƒì„±ì */
 	public Member() {}
-	public Member(String memberID, String memberPwd, String memberName, String memberMail, String memberAddr,
-			String memberPhone, int memberLevel) {
+	public Member(String memberMail, String memberPwd, String memberName, String memberAddr, String memberPhone) {
 		super();
-		this.memberID = memberID;
+		this.memberMail = memberMail;
 		this.memberPwd = memberPwd;
 		this.memberName = memberName;
+		this.memberAddr = memberAddr;
+		this.memberPhone = memberPhone;
+	}
+	public Member(String memberMail, String memberPwd, String memberName, String memberAddr,
+			String memberPhone, int memberLevel) {
+		super();
 		this.memberMail = memberMail;
+		this.memberPwd = memberPwd;
+		this.memberName = memberName;
 		this.memberAddr = memberAddr;
 		this.memberPhone = memberPhone;
 		this.memberLevel = memberLevel;
 	}
 	
-	/* Á¢±ÙÀÚ, ¼öÁ¤ÀÚ */
-	public String getMemberID() {
-		return memberID;
+	/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
+	public String getMemberMail() {
+		return memberMail;
 	}
-	public void setMemberID(String memberID) {
-		this.memberID = memberID;
+	public void setMemberMail(String memberMail) {
+		this.memberMail = memberMail;
 	}
 	public String getMemberPwd() {
 		return memberPwd;
@@ -44,12 +50,6 @@ public class Member {
 	}
 	public void setMemberName(String memberName) {
 		this.memberName = memberName;
-	}
-	public String getMemberMail() {
-		return memberMail;
-	}
-	public void setMemberMail(String memberMail) {
-		this.memberMail = memberMail;
 	}
 	public String getMemberAddr() {
 		return memberAddr;
@@ -70,18 +70,15 @@ public class Member {
 		this.memberLevel = memberLevel;
 	}
 	
-	/* ÇÔ¼ö */
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Member [memberID=");
-		builder.append(memberID);
+		builder.append("Member [memberMail=");
+		builder.append(memberMail);
 		builder.append(", memberPwd=");
 		builder.append(memberPwd);
 		builder.append(", memberName=");
 		builder.append(memberName);
-		builder.append(", memberMail=");
-		builder.append(memberMail);
 		builder.append(", memberAddr=");
 		builder.append(memberAddr);
 		builder.append(", memberPhone=");
@@ -91,5 +88,4 @@ public class Member {
 		builder.append("]");
 		return builder.toString();
 	}
-	
 }//end of Member
