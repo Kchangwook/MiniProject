@@ -13,13 +13,13 @@ public class Member {
 	
 	/* 생성자 */
 	public Member() {}
-	public Member(String memberMail, String memberPwd, String memberName, String memberAddr, String memberPhone) {
+	public Member(String memberMail, String memberName, String memberAddr, String memberPhone, int memberLevel) {
 		super();
 		this.memberMail = memberMail;
-		this.memberPwd = memberPwd;
 		this.memberName = memberName;
 		this.memberAddr = memberAddr;
 		this.memberPhone = memberPhone;
+		this.memberLevel = memberLevel;
 	}
 	public Member(String memberMail, String memberPwd, String memberName, String memberAddr,
 			String memberPhone, int memberLevel) {

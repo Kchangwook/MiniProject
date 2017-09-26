@@ -61,7 +61,7 @@ public class MemberDAO {
 			pstmt = con.prepareStatement("SELECT member_mail,member_name,member_addr,member_phone,member_level FROM member");
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
-				list.add(new Member(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getInt(6)));
+				list.add(new Member(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5)));
 			}
 		}finally {
 			DBUtil.close(con, pstmt, rs);
@@ -109,11 +109,15 @@ public class MemberDAO {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		Member loginId = null;
-		pstmt = con.prepareStatement("SELECT * FROM member WHERE member_mail = ?");
-		pstmt.setString(1, id);
-		rs = pstmt.executeQuery();
-		if(rs.next()) {
-			loginId = new Member(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getInt(6));
+		try{
+			pstmt = con.prepareStatement("SELECT member_mail,member_name,member_addr,member_phone,member_level FROM member WHERE member_mail = ?");
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				loginId = new Member(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5));
+			}
+		}finally {
+			DBUtil.close(con, pstmt, rs);
 		}
 		return loginId;
 	}

@@ -38,13 +38,13 @@ public class SHAUtil {
 		String dbpw = "";
 		byte[] dbInpw = null;
 		MessageDigest sha1Receiver = MessageDigest.getInstance("SHA-256");
-		String salt = rs.getString("salt");
+		String salt = rs.getString("member_salt");
 		byte[] bytes = new byte[salt.length() / 2];
 		for (int i = 0; i < bytes.length; i++) {
 			bytes[i] = (byte) Integer.parseInt(salt.substring(2 * i, 2 * i + 2), 16);
 		}
 		sha1Receiver.update(bytes);
-		dbpw = rs.getString("pwd");
+		dbpw = rs.getString("member_pwd");
 		dbInpw = new byte[dbpw.length() / 2];
 		for (int i = 0; i < dbInpw.length; i++) {
 			dbInpw[i] = (byte) Integer.parseInt(dbpw.substring(2 * i, 2 * i + 2), 16);
