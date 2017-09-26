@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import project.dao.FAQDAO;
 import project.domain.FAQ;
 
-@WebServlet("/FAQ")
+@WebServlet("/FAQ.do")
 public class FAQController extends HttpServlet {
        
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

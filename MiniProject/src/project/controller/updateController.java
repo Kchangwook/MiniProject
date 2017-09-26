@@ -14,7 +14,7 @@ import project.domain.Member;
 public class updateController extends HttpServlet {
        
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("EUC-KR");
+		request.setCharacterEncoding("UTF-8");
 		MemberDAO member = MemberDAO.getInstance();
 		Member m = (Member) request.getSession().getAttribute("id");
 		m.setMemberPwd(request.getParameter("pwd"));
