@@ -14,7 +14,7 @@
 	</div>
 
 	<div class="modal-body">
-		<form class="w3-container" action="login.do">
+		<form class="w3-container" action="../login.do">
 			<div class="w3-section">
 				<input class="w3-input w3-border w3-margin-bottom" type="email" placeholder="이메일" name="id" required> 
 				<input class="w3-input w3-border" type="password" placeholder="비밀번호" name="pwd" required> 

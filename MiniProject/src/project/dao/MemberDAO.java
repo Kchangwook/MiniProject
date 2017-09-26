@@ -40,7 +40,7 @@ public class MemberDAO {
 			pstmt.setString(5,m.getMemberPhone());
 			pstmt.setInt(6,0);//�씪諛섑쉶�썝 0 愿�由ъ옄 1
 //			pstmt.setString(7, list.get(0));
-			pstmt.setString(7, "");
+			pstmt.setString(7, "11");
 			result = pstmt.executeUpdate();
 		}catch (SQLException e){
 			e.printStackTrace();

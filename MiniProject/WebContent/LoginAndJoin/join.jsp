@@ -11,7 +11,7 @@
 		<h2 class="w3-text-blue modal-head"><b>회원 가입</b></h2>	
 	</div>
 	<div class = "modal-body form-body w3-animate-zoom">
-	<form action="Join.do" method = "post" class="w3-container w3-margin">
+	<form action="../Join.do" method = "post" class="w3-container w3-margin">
 		<div class="w3-row w3-section">
 			<div class="w3-rest">
 				<input id = "id" class="w3-input w3-border" name="memberID" type="email"

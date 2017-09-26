@@ -34,7 +34,7 @@ public class LoginController extends HttpServlet {
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
-		request.getRequestDispatcher("main.jsp").forward(request, response);
+		request.getRequestDispatcher("Domain/main.jsp").forward(request, response);
 	}
 
 }

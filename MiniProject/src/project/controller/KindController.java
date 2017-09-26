@@ -10,19 +10,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 import project.dao.CarDAO;
 import project.domain.Car;
 
 /**
  * Servlet implementation class KindController
  */
-@WebServlet("/KindController")
+@WebServlet("/Kind.do")
 public class KindController extends HttpServlet {
 	
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("EUC-KR");
+		request.setCharacterEncoding("UTF-8");
 		String command = request.getParameter("command");
 		if(command.equals("getList")) {
 			getList(request,response);
@@ -39,11 +38,11 @@ public class KindController extends HttpServlet {
 			e.printStackTrace();
 		}
 		if(list==null) {
-			request.setAttribute("error", "오류가 발생했습니다.");
+			request.setAttribute("error", "�삤瑜섍� 諛쒖깮�뻽�뒿�땲�떎.");
 		}else {
 			request.setAttribute("carList", list);
 		}
-		request.getRequestDispatcher("kind.jsp").forward(request, response);
+		request.getRequestDispatcher("Kind/kind.jsp").forward(request, response);
 	}
 	
 	private void carNum(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -57,12 +56,12 @@ public class KindController extends HttpServlet {
 			e.printStackTrace();
 		}
 		if(car==null) {
-			request.setAttribute("error", "오류가 발생했습니다.");
+			request.setAttribute("error", "�삤瑜섍� 諛쒖깮�뻽�뒿�땲�떎.");
 		}else {
 			if(car.getCarNum()==Integer.parseInt(request.getParameter("num"))) {
 				request.setAttribute("carDetail", car);
 			}else {
-				request.setAttribute("error", "오류가 발생했습니다.");
+				request.setAttribute("error", "�삤瑜섍� 諛쒖깮�뻽�뒿�땲�떎.");
 			}
 		}
 		request.getRequestDispatcher("carDetail.jsp").forward(request, response);

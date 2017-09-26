@@ -6,16 +6,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Header</title>
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom fonts for this template -->
-    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-
-    <!-- Custom styles for this template -->
-    <link href="css/freelancer.min.css" rel="stylesheet">
 <style>
 .head_logo{
 	width:50px;
@@ -30,7 +20,8 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="main.jsp"><img class = "head_logo" src = "./img/img_main/logo.png">&nbsp;&nbsp;Get Off Work With EV Car</a>
+        <a class="navbar-brand js-scroll-trigger" href="${pageContext.request.contextPath}/Domain/main.jsp">
+        <img class = "head_logo" src = "${pageContext.request.contextPath}/img/img_main/logo.png">&nbsp;&nbsp;Get Off Work With EV Car</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           Menu
           <i class="fa fa-bars"></i>
@@ -42,10 +33,10 @@
               <a class="nav-link js-scroll-trigger" href="#portfolio">마이 페이지</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="Introduce/introduce.jsp">전기차 소개</a>
+              <a class="nav-link js-scroll-trigger" href="${pageContext.request.contextPath}/Introduce/introduce.jsp">전기차 소개</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#about">전기차 종류</a>
+              <a class="nav-link js-scroll-trigger" href="${pageContext.request.contextPath}/Kind.do?command=getList">전기차 종류</a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#contact">충전소 검색</a>
@@ -72,28 +63,5 @@
         </div>
       </div>
     </nav>
-
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/popper/popper.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-
-    <!-- Plugin JavaScript -->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-    <!-- Contact Form JavaScript -->
-    <script src="js/jqBootstrapValidation.js"></script>
-    <script src="js/contact_me.js"></script>
-
-    <!-- Custom scripts for this template -->
-    <script src="js/freelancer.min.js"></script>
-    <script type="text/javascript">
-    function loginModal(){
-    	document.getElementById("page").value = "login";
-	}
-    function joinModal(){
-    	document.getElementById("page").value = "join";
-    }
-    </script>
 </body>
 </html>

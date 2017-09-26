@@ -1,0 +1,47 @@
+.main_img{
+	width:100%;
+	border-width:1px;
+	border-style:solid;
+	border-color:#959595;
+}
+.main-car{
+	width:300px;
+	position:relative;
+	top:-180px;
+	left:100px;
+}
+.text-ev{
+	font-size:30pt;
+}
+.text-declare{
+	color:#001379;
+}
+.main-charger{
+	position:relatvie;
+	width:300px;
+	z-index:-800;
+}
+.declare{
+	background-image: url(img/img_main/evcharger.png);
+	background-size: 500px;
+	background-position: right;
+	background-repeat: no-repeat;
+}
+.form-body{
+	background-image:url("img/img_etc/evcar.png");
+	background-size:70%;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+.modal-head{
+	position:relative;
+	margin:auto;
+}
+.img-login {
+	width: 50px;
+	margin-bottom: 10px;
+}
+
+.login-text {
+	font-size: 40px;
+}
