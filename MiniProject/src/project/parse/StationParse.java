@@ -68,13 +68,5 @@ public class StationParse {
 	      }
 	      return list;
 	   }
-	   
-	   public static void main(String[] args) {
-		   try {
-			System.out.println(new StationParse().parse());
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
 	}
 
