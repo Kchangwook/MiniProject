@@ -10,9 +10,9 @@ header.jsp
 
 - 로그인, 회원가입은 modal
 
-   LoginController - 로그인 성공시 session에 id를 저장
+  * LoginController - 로그인 성공시 session에 id를 저장
 
-   LogoutController - 로그아웃시 session에 id를 제거
+  * LogoutController - 로그아웃시 session에 id를 제거
 
    URIEncoder, 암호화
 

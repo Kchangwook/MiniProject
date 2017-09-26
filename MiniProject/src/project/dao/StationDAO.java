@@ -37,16 +37,7 @@ public class StationDAO {
 		}
 		return result;
 	}
-	public static void main(String[] args) {
-		try {
-			int result = new StationDAO().add();
-			if(result!=-1) {
-				System.out.println("성공");
-			}else {
-				System.out.println("실패");
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-}
+	
+	public static 
+	
+}//end of StationDAO

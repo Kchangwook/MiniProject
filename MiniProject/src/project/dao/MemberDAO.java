@@ -27,6 +27,7 @@ public class MemberDAO {
 			pstmt.setString(4,m.getMemberAddr());
 			pstmt.setString(5,m.getMemberPhone());
 			pstmt.setInt(6,0);//일반회원 0 관리자 1
+			pstmt.setString(7, list.get(0));
 			result = pstmt.executeUpdate();
 		}catch (SQLException e){
 			throw new Exception("회원 가입에 실패하였습니다.");
@@ -102,5 +103,28 @@ public class MemberDAO {
 			loginId = new Member(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getInt(6));
 		}
 		return loginId;
+	}
+	
+	//회원정보 수정
+	public static int update(Member m) throws Exception{
+		Connection con = DBUtil.getConnection();
+		PreparedStatement pstmt = null;
+		int result = -1;
+		try {
+			pstmt = con.prepareStatement("UPDATE member SET member_pwd=?, member_addr=?, member_phone=?, member_salt=? WHERE member_mail=?");
+			List<String> list = SHAUtil.encodePwd(m.getMemberPwd());
+			pstmt.setString(1, list.get(1));
+			pstmt.setString(2, m.getMemberAddr());
+			pstmt.setString(3, m.getMemberPhone());
+			pstmt.setString(4, list.get(0));
+			pstmt.setString(5, m.getMemberMail());
+			result = pstmt.executeUpdate();
+		}catch(SQLException e) {
+			e.printStackTrace();
+			throw new Exception("회원 정보 수정에 실패했습니다.");
+		}finally {
+			DBUtil.close(con, pstmt);
+		}
+		return result;
 	}
 }//end of MemberDAO

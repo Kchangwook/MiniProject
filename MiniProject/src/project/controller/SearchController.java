@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 public class SearchController extends HttpServlet {
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-	}
-
+		request.setCharacterEncoding("EUC-KR");
+	}	
 }
