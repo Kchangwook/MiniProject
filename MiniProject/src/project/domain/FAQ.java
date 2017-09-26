@@ -7,16 +7,18 @@ public class FAQ {
 	private int faqNum;
 	private String faqTitle;
 	private String faqContent;
+	private String faqImg;
 	
 	/* 생성자 */
 	public FAQ() {}
-	public FAQ(int faqNum, String faqTitle, String faqContent) {
+	public FAQ(int faqNum, String faqTitle, String faqContent, String faqImg) {
 		super();
 		this.faqNum = faqNum;
 		this.faqTitle = faqTitle;
 		this.faqContent = faqContent;
+		this.faqImg = faqImg;
 	}
-	
+
 	/* 접근자, 수정자 */
 	public int getFaqNum() {
 		return faqNum;
@@ -36,6 +38,12 @@ public class FAQ {
 	public void setFaqContent(String faqContent) {
 		this.faqContent = faqContent;
 	}
+	public String getFaqImg() {
+		return faqImg;
+	}
+	public void setFaqImg(String faqImg) {
+		this.faqImg = faqImg;
+	}
 	
 	/*함수 */
 	@Override
@@ -47,6 +55,8 @@ public class FAQ {
 		builder.append(faqTitle);
 		builder.append(", faqContent=");
 		builder.append(faqContent);
+		builder.append(", faqImg=");
+		builder.append(faqImg);
 		builder.append("]");
 		return builder.toString();
 	}

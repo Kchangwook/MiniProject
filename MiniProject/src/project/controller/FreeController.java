@@ -17,12 +17,12 @@ import project.domain.Free;
 public class FreeController extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("EUC-KR");
+		request.setCharacterEncoding("UTF-8");
 		String command = request.getParameter("command");
 		if(command.equals("add")) {
 			add(request,response);
-		}else if(command.equals("list")) {
-			list(request,response);
+		}else if(command.equals("table")) {
+			table(request,response);
 		}else if(command.equals("delete")) {
 			delete(request,response);
 		}else if(command.equals("update")) {
@@ -45,7 +45,7 @@ public class FreeController extends HttpServlet {
 			}
 	}
 	
-	private void list(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	private void table(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		List<Free> list = null;
 		try {
 			list = FreeDAO.getInstance().table();

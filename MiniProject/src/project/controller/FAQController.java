@@ -1,41 +1,41 @@
 package project.controller;
 
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class FAQController
- */
-@WebServlet("/FAQController")
+import project.dao.FAQDAO;
+import project.domain.FAQ;
+
+@WebServlet("/FAQ")
 public class FAQController extends HttpServlet {
-	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public FAQController() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+		String command = request.getParameter("command");
+		if(command.equals("faqList")) {
+			table(request,response);
+		}
 	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+	
+	private void table(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		List<FAQ> list  = null;
+		try {
+			list = FAQDAO.getInstance().table();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		if(list==null) {
+			request.setAttribute("error", "오류가 발생했습니다.");
+		}else {
+			request.setAttribute("faqList", list);
+		}
+		request.getRequestDispatcher("faq.jsp").forward(request, response);
 	}
-
-}
+}//end of FAQController
