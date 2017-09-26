@@ -59,11 +59,10 @@
             </c:if>
             <c:if test="${empty sessionScope.id }">
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" id = "login" href = "#" onclick = "loginModal()">로그인</a>
+              <a class="nav-link js-scroll-trigger"href = "#" onclick = "loginModal()">로그인</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" id = "join" href = "#" onclick = "joinModal()"">회원가입</a>
-              
+              <a class="nav-link js-scroll-trigger"href = "#" onclick = "joinModal()">회원가입</a>
             </li>
             </c:if>
           </ul>
@@ -87,7 +86,18 @@
     <script src="js/freelancer.min.js"></script>
     <script type="text/javascript">
     	function joinModal(){
+    		alert('join');
     		$('div.modal ').modal({remote:'LoginAndJoin/join.jsp'});
+    		<%
+    		request.removeAttribute("page");
+    		request.setAttribute("page","join");%>
+    	}
+    	
+    	function loginModal(){
+    		$('div.modal ').modal({remote:'LoginAndJoin/login.jsp'});
+    		<% 
+    		request.removeAttribute("page");
+    		request.setAttribute("page","login");%>
     	}
     </script>
 </body>

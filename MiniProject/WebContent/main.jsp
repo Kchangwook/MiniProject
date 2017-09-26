@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -9,7 +10,6 @@
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom fonts for this template -->
-    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
@@ -62,12 +62,20 @@
 	position:relative;
 	margin:auto;
 }
+.img-login {
+	width: 50px;
+	margin-bottom: 10px;
+}
+
+.login-text {
+	font-size: 40px;
+}
 </style>
 </head>
 <body>
 	<!-- Header -->
 	<jsp:include page="header.jsp"/>
-	
+	<c:if test = "${requestScope.page == 'join' }">
 	<div class="modal fade">
   		<div class="modal-dialog">
     		<div class="modal-content">
@@ -75,20 +83,31 @@
     		</div>
 		 </div>
 	</div>
+	</c:if>
+	<c:if test = "${requestScope.page == 'login' }">
+	<div class="modal fade">
+  		<div class="modal-dialog">
+    		<div class="modal-content">
+       		 	<jsp:include page = "LoginAndJoin/login.jsp"/>
+    		</div>
+		 </div>
+	</div>
+	</c:if>
+	
 	 <!-- Main -->
     <header class = "header_back">
         <img class = "main_img" src="img/img_main/background1.jpg" alt="">
         <img class = "main_img" src="img/img_main/background2.jpg" alt="">
         <img class = "main_img" src="img/img_main/background3.jpg" alt="">
     </header>
-
+    
     <!-- About Section -->
     <section class="success" id="about">
       <div class="container">
         <h2 class="text-ev text-left">전기자동차, 무엇이 궁금하세요?</h2><br>
         <div class="row">
           <div class="col-lg-10 mr-auto">
-            <p>전기자동차의 작동원리 및 구조에 대한 내용과 충전시 주의사항에<br> 관한 내용, 
+            <p>전기자동차의 작동원리 및 구조에 대한 내용과 충전시 주의사항에<br> ${page }관한 내용, 
             	전기자동차의 관리 방법 및 운행 요령에 대한 <br>자세한 내용을 확인 하실 수 있습니다.</p>
             <div class = "ml-auto" align = "right">
         		<img class = "main-car" src = "img/img_main/evcar.png">
@@ -134,6 +153,8 @@
     <!-- Custom scripts for this template -->
     <script src="js/freelancer.min.js"></script>
     <script type="text/javascript">
+    
+    
     var myIndex = 0;
     carousel();
 
