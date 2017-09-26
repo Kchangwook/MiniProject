@@ -1,6 +1,7 @@
 package project.controller;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,7 +19,7 @@ public class JoinController extends HttpServlet {
 		MemberDAO member = MemberDAO.getInstance();
 		int result = -1;
 		try {
-			result = member.add(new Member(request.getParameter("memberID"),request.getParameter("memberPwd"),request.getParameter("memberName"),request.getParameter("memberAddr"),request.getParameter("memberPhone")));
+			result = member.add(new Member(request.getParameter("memberID"),request.getParameter("memberPwd"),request.getParameter("memberName"),request.getParameter("memberAddr"),request.getParameter("memberPhone"),0));
 			if(result==-1) {
 				new Exception();
 			}

@@ -1,11 +1,8 @@
---system[AdminÍ≥ÑÏ†ïÏóêÏÑú evcarÍ≥ÑÏ†ï ÏÉùÏÑ±&Í∂åÌïúÎ∂ÄÏó¨
-create user evcar identified by 1234;
-grant connect,resource,dba to evcar;
 
---ÌÖåÏù¥Î∏î ÌôïÏù∏
+--?Öå?ù¥Î∏? ?ôï?ù∏
 select * from tab;
 
---ÏßÄÏö∞Îäî ÏàúÏÑú
+--Ïß??ö∞?äî ?àú?Ñú
 drop sequence free_num;
 drop sequence faq_num;
 drop table free;
@@ -67,19 +64,17 @@ constraint faq_num_pk primary key(faq_num)
 );
 
 CREATE TABLE STATION(
-cpid                NUMBER(6), 
-addr                VARCHAR2(255)   not null, 
-csnm                VARCHAR2(50)    not null, 
-cpnm                VARCHAR2(8)     not null, 
-lat                 NUMBER(19,15)   not null,
-longi               NUMBER(19,14)   not null, 
-csid                NUMBER(5)       not null, 
-cptp                NUMBER(2)       not null, 
-cpstat              NUMBER(2)       not null,
-statupdate          VARCHAR2(100)    not null,
+station_cpid                NUMBER(6), 
+station_addr                VARCHAR2(255)   not null, 
+station_csnm                VARCHAR2(50)    not null, 
+station_cpnm                VARCHAR2(8)     not null, 
+station_lat                 NUMBER(19,15)   not null,
+station_longi               NUMBER(19,14)   not null, 
+station_csid                NUMBER(5)       not null, 
+station_cptp                NUMBER(2)       not null, 
+station_cpstat              NUMBER(2)       not null,
+station_statupdate          VARCHAR2(100)    not null,
 CONSTRAINT station_pk PRIMARY KEY(cpid)
 );
-ALTER SESSION SET NLS_DATE_FORMAT='YYYY-MM-DD HH24:MI:SS';
-select to_date(statupdate,'YYYY-MM-DD HH24:MI:SS') from station;
 select * from station;
 commit;

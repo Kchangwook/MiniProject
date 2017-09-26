@@ -126,7 +126,7 @@
 
     <!-- Footer -->
     <footer class="text-center">
-		<jsp:include page = "Footer.jsp"/>
+		<jsp:include page = "footer.jsp"/>
     </footer>
     
     

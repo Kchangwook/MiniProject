@@ -42,7 +42,7 @@
               <a class="nav-link js-scroll-trigger" href="#portfolio">마이 페이지</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#portfolio">전기차 소개</a>
+              <a class="nav-link js-scroll-trigger" href="Introduce/introduce.jsp">전기차 소개</a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#about">전기차 종류</a>

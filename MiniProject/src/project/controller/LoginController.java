@@ -1,7 +1,6 @@
 package project.controller;
 
 import java.io.IOException;
-import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 
 import javax.servlet.ServletException;
@@ -20,14 +19,18 @@ public class LoginController extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		MemberDAO member = MemberDAO.getInstance();
 			try {
-				if(member.login(request.getParameter("id"), request.getParameter("pwd"))) {
-					Member loginId = member.getMember(request.getParameter("email"));
-					request.getSession().setAttribute("loginId", loginId);
+//				if(member.login(request.getParameter("id"), request.getParameter("pwd"))) {
+//					Member loginId = member.getMember(request.getParameter("email"));
+//					request.getSession().setAttribute("loginId", loginId);
+				Member m = member.getMember(request.getParameter("id"));
+				if(m != null) {
+					request.getSession().setAttribute("id", request.getParameter("id"));
 				}else {
-					request.setAttribute("error","아이디/비밀번호가 일치하지 않습니다.");
+					request.setAttribute("error","�븘�씠�뵒/鍮꾨�踰덊샇媛� �씪移섑븯吏� �븡�뒿�땲�떎.");
 				}
-			} catch (NoSuchAlgorithmException e) {
-				e.printStackTrace();
+//			} 
+//			catch (NoSuchAlgorithmException e) {
+//				e.printStackTrace();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}

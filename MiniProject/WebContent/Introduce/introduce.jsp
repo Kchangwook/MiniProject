@@ -7,6 +7,14 @@
 <title>Introduce</title>
 </head>
 <body>
-
+	<!-- Header -->
+	<jsp:include page = "../header.jsp"/>
+	
+	<!-- Body -->
+	
+	
+	
+	<!-- Footer -->
+	<jsp:include page="../footer.jsp"/>
 </body>
 </html>
