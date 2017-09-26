@@ -59,10 +59,13 @@
             </c:if>
             <c:if test="${empty sessionScope.id }">
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger"href = "#" onclick = "loginModal()">로그인</a>
+              <a class="nav-link js-scroll-trigger"href = "#" data-toggle="modal" data-target="#login">로그인</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger"href = "#" onclick = "joinModal()">회원가입</a>
+              <a class="nav-link js-scroll-trigger"href = "#" data-toggle="modal" data-target="#join">회원가입</a>
+            </li>
+            <li>
+            	<input type = "hidden" name = "page">
             </li>
             </c:if>
           </ul>
@@ -85,20 +88,12 @@
     <!-- Custom scripts for this template -->
     <script src="js/freelancer.min.js"></script>
     <script type="text/javascript">
-    	function joinModal(){
-    		alert('join');
-    		$('div.modal ').modal({remote:'LoginAndJoin/join.jsp'});
-    		<%
-    		request.removeAttribute("page");
-    		request.setAttribute("page","join");%>
-    	}
-    	
-    	function loginModal(){
-    		$('div.modal ').modal({remote:'LoginAndJoin/login.jsp'});
-    		<% 
-    		request.removeAttribute("page");
-    		request.setAttribute("page","login");%>
-    	}
+    function loginModal(){
+    	document.getElementById("page").value = "login";
+	}
+    function joinModal(){
+    	document.getElementById("page").value = "join";
+    }
     </script>
 </body>
 </html>

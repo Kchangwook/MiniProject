@@ -28,4 +28,5 @@ public class updateController extends HttpServlet {
 		}
 		response.sendRedirect("index.jsp");
 	}
+	
 }//end of updateController

@@ -21,10 +21,7 @@
 	<link rel="stylesheet" href="css/font-awesome.min.css">
 <style>
 .main_img{
-	margin-top:130px;
-	margin-left:220px;
-	width:70%;
-	margin-bottom:30px;
+	width:100%;
 	border-width:1px;
 	border-style:solid;
 	border-color:#959595;
@@ -75,25 +72,22 @@
 <body>
 	<!-- Header -->
 	<jsp:include page="header.jsp"/>
-	<c:if test = "${requestScope.page == 'join' }">
-	<div class="modal fade">
-  		<div class="modal-dialog">
-    		<div class="modal-content">
-       		 	<jsp:include page = "LoginAndJoin/join.jsp"/>
-    		</div>
-		 </div>
-	</div>
-	</c:if>
-	<c:if test = "${requestScope.page == 'login' }">
-	<div class="modal fade">
-  		<div class="modal-dialog">
-    		<div class="modal-content">
-       		 	<jsp:include page = "LoginAndJoin/login.jsp"/>
-    		</div>
-		 </div>
-	</div>
-	</c:if>
 	
+	<div class="modal fade" id = "login">
+  		<div class="modal-dialog">
+    		<div class="modal-content">
+       			<jsp:include page = "LoginAndJoin/login.jsp"/>
+    		</div>
+		 </div>
+	</div>
+	<div class="modal fade" id = "join">
+  		<div class="modal-dialog">
+    		<div class="modal-content">
+       			<jsp:include page = "LoginAndJoin/join.jsp"/>
+    		</div>
+		 </div>
+	</div>
+		
 	 <!-- Main -->
     <header class = "header_back">
         <img class = "main_img" src="img/img_main/background1.jpg" alt="">
@@ -120,7 +114,7 @@
     <!-- Contact Section -->
     <section id="contact" class = "declare">
       <div class="container">
-        <h3 class="text-center text-declare">환경부는 2011년부터 온실가스와 대기오염물질을 줄여 대기질을 개선하고자<br>전기자동차 보급사업을 추진하고 있습니다.</h3>
+        <h3 class="text-center text-declare">환경부는 2011년부터 온실가스와 대기${sessionScope.evcar }오염물질을 줄여 대기질을 개선하고자<br>전기자동차 보급사업을 추진하고 있습니다.</h3>
         <br><br>
         <div class="row">
           <div class="col-lg-8 mx-auto">
@@ -170,6 +164,5 @@
         setTimeout(carousel, 2000); // Change image every 2 seconds
     }
     </script>
-	
 </body>
 </html>

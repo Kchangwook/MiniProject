@@ -16,14 +16,10 @@
 	<div class="modal-body">
 		<form class="w3-container" action="login.do">
 			<div class="w3-section">
-				<input class="w3-input w3-border w3-margin-bottom" type="email"
-					placeholder="이메일" name="id" required> <input
-					class="w3-input w3-border" type="text" placeholder="비밀번호"
-					name="pwd" required> <input
-					class="w3-button w3-block w3-blue w3-section w3-padding"
-					type="submit" value="로그인"> <input
-					class="w3-button w3-block w3-red w3-section w3-padding"
-					type="reset" value="취소">
+				<input class="w3-input w3-border w3-margin-bottom" type="email" placeholder="이메일" name="id" required> 
+				<input class="w3-input w3-border" type="password" placeholder="비밀번호" name="pwd" required> 
+				<input class="w3-button w3-block w3-blue w3-section w3-padding"type="submit" value="로그인"> 
+				<input class="w3-button w3-block w3-red w3-section w3-padding" type="reset" value="취소">
 			</div>
 		</form>
 
