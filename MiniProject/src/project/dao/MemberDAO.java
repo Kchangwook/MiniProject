@@ -11,10 +11,22 @@ import java.util.List;
 import project.domain.Member;
 import project.util.DBUtil;
 import project.util.SHAUtil;
+import sun.security.jca.GetInstance;
 
 public class MemberDAO {
+	
+	private static MemberDAO member;
+	
+	public static MemberDAO getInstance() {
+		if(member==null) {
+			member = new MemberDAO();
+		}
+		return member;
+	}
+	private MemberDAO() {}
+	
 	//회원가입
-	public static int add(Member m) throws Exception {
+	public int add(Member m) throws Exception {
 		Connection con = DBUtil.getConnection();
 		PreparedStatement pstmt = null;
 		int result = -1;
@@ -39,7 +51,7 @@ public class MemberDAO {
 	}
 	
 	//회원테이블 보기(관리자)
-	public static List<Member> table() throws SQLException{
+	public List<Member> table() throws SQLException{
 		Connection con = DBUtil.getConnection();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -57,7 +69,7 @@ public class MemberDAO {
 	}
 	
 	//회원 삭제(관리자)
-	public static boolean delete(String memberMail) throws SQLException {
+	public boolean delete(String memberMail) throws SQLException {
 		Connection con = DBUtil.getConnection();
 		PreparedStatement pstmt = null;
 		boolean result = false;
@@ -72,7 +84,7 @@ public class MemberDAO {
 	}
 	
 	//회원 로그인
-	public static boolean login(String memberMail,String memberPwd) throws SQLException, NoSuchAlgorithmException {
+	public boolean login(String memberMail,String memberPwd) throws SQLException, NoSuchAlgorithmException {
 		Connection con = DBUtil.getConnection();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -91,7 +103,7 @@ public class MemberDAO {
 	}
 	
 	//아이디에 해당하는 멤버
-	public static Member getMember(String id) throws SQLException {
+	public Member getMember(String id) throws SQLException {
 		Connection con = DBUtil.getConnection();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -106,7 +118,7 @@ public class MemberDAO {
 	}
 	
 	//회원정보 수정
-	public static int update(Member m) throws Exception{
+	public int update(Member m) throws Exception{
 		Connection con = DBUtil.getConnection();
 		PreparedStatement pstmt = null;
 		int result = -1;

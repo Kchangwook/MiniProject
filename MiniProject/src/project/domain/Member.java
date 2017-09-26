@@ -1,6 +1,6 @@
 package project.domain;
 
-/** DB�� Member Table�� ������ �����ϱ� ���� Ŭ���� */
+/** DB로부터 Member Table의 정보를 담을 클래스*/
 public class Member {
 
 	/* 변수 */
@@ -32,7 +32,7 @@ public class Member {
 		this.memberLevel = memberLevel;
 	}
 	
-	/* ������, ������ */
+	/* 접근자, 수정자 */
 	public String getMemberMail() {
 		return memberMail;
 	}
@@ -70,6 +70,7 @@ public class Member {
 		this.memberLevel = memberLevel;
 	}
 	
+	/* 함수 */
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();

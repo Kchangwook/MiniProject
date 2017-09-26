@@ -30,11 +30,11 @@ public class DBUtil {
 		return ds.getConnection();
 	}
 	
-	public static void close(Connection con, PreparedStatement pstmt, ResultSet rset) {
+	public static void close(Connection con, PreparedStatement pstmt, ResultSet rs) {
 		try {
-			if (rset != null) {
-				rset.close();
-				rset = null;
+			if (rs != null) {
+				rs.close();
+				rs = null;
 			}
 			if (pstmt != null) {
 				pstmt.close();

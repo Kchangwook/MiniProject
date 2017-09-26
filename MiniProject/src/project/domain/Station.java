@@ -1,7 +1,8 @@
 package project.domain;
 
-/** DB�� Station Table�� ������ �����ϱ� ���� Ŭ���� */
+/** DB로부터 Station Table의 정보를 담을 클래스*/
 public class Station {
+	
 	/* 변수 */
 	private int stationNum;
 	private String statingAddr;
@@ -31,7 +32,7 @@ public class Station {
 		this.stationStatUpdate = stationStatUpdate;
 	}
 
-	/* ������ ������ */
+	/* 접근자, 수정자 */
 	public int getStationNum() {
 		return stationNum;
 	}
@@ -93,7 +94,7 @@ public class Station {
 		this.stationStatUpdate = stationStatUpdate;
 	}
 	
-	/* �Լ� */
+	/* 함수 */
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();

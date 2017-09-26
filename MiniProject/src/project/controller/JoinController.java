@@ -15,9 +15,10 @@ public class JoinController extends HttpServlet {
        
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
+		MemberDAO member = MemberDAO.getInstance();
 		int result = -1;
 		try {
-			result = MemberDAO.add(new Member(request.getParameter("memberID"),request.getParameter("memberPwd"),request.getParameter("memberName"),request.getParameter("memberAddr"),request.getParameter("memberPhone")));
+			result = member.add(new Member(request.getParameter("memberID"),request.getParameter("memberPwd"),request.getParameter("memberName"),request.getParameter("memberAddr"),request.getParameter("memberPhone")));
 			if(result==-1) {
 				new Exception();
 			}

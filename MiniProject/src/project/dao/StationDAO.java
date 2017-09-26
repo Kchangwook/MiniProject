@@ -38,6 +38,5 @@ public class StationDAO {
 		return result;
 	}
 	
-	public static 
 	
 }//end of StationDAO

@@ -1,6 +1,6 @@
 package project.domain;
 
-/** DB로부터 Car Table의 정보를 담을 클래스*/
+/** DB로부터 FAQ Table의 정보를 담을 클래스*/
 public class FAQ {
 
 	/* 변수 */
@@ -50,5 +50,4 @@ public class FAQ {
 		builder.append("]");
 		return builder.toString();
 	}
-	
 }//end of FAQ

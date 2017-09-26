@@ -1,27 +1,27 @@
 package project.domain;
 
-/** DBÀÇ Free TableÀÇ Á¤º¸¸¦ ÀúÀåÇÏ±â À§ÇÑ Å¬·¡½º */
+/** DBë¡œë¶€í„° Free Tableì˜ ì •ë³´ë¥¼ ë‹´ì„ í´ë˜ìŠ¤ */
 public class Free {
 
-	/* º¯¼ö */
+	/* ë³€ìˆ˜ */
 	private int freeNum;
 	private String freeTitle;
 	private String freeContent;
-	private String memberId;
 	private int freeNotice;
+	private String memberMail;
 	
-	/* »ı¼ºÀÚ */
+	/* ìƒì„±ì */
 	public Free() {}
-	public Free(int freeNum, String freeTitle, String freeContent, String memberId, int freeNotice) {
+	public Free(int freeNum, String freeTitle, String freeContent, int freeNotice, String memberMail) {
 		super();
 		this.freeNum = freeNum;
 		this.freeTitle = freeTitle;
 		this.freeContent = freeContent;
-		this.memberId = memberId;
 		this.freeNotice = freeNotice;
+		this.memberMail = memberMail;
 	}
 	
-	/* ¼öÁ¤ÀÚ Á¢±ÙÀÚ */
+	/* ì ‘ê·¼ì, ìˆ˜ì •ì */
 	public int getFreeNum() {
 		return freeNum;
 	}
@@ -40,11 +40,11 @@ public class Free {
 	public void setFreeContent(String freeContent) {
 		this.freeContent = freeContent;
 	}
-	public String getMemberId() {
-		return memberId;
+	public String getMemberMail() {
+		return memberMail;
 	}
-	public void setMemberId(String memberId) {
-		this.memberId = memberId;
+	public void setMemberId(String memberMail) {
+		this.memberMail = memberMail;
 	}
 	public int getFreeNotice() {
 		return freeNotice;
@@ -53,7 +53,7 @@ public class Free {
 		this.freeNotice = freeNotice;
 	}
 	
-	/* ÇÔ¼ö */
+	/* í•¨ìˆ˜ */
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
@@ -63,12 +63,11 @@ public class Free {
 		builder.append(freeTitle);
 		builder.append(", freeContent=");
 		builder.append(freeContent);
-		builder.append(", memberId=");
-		builder.append(memberId);
+		builder.append(", memberMail=");
+		builder.append(memberMail);
 		builder.append(", freeNotice=");
 		builder.append(freeNotice);
 		builder.append("]");
 		return builder.toString();
 	}
-	
 }//end of Free

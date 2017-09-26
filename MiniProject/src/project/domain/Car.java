@@ -1,9 +1,9 @@
 package project.domain;
 
-/** DB·ÎºÎÅÍ Car TableÀÇ Á¤º¸¸¦ ´ãÀ» Å¬·¡½º */
+/** DBë¡œë¶€í„° Car Tableì˜ ì •ë³´ë¥¼ ë‹´ì„ í´ë˜ìŠ¤*/
 public class Car {
 
-	/* º¯¼ö */
+	/* ë³€ìˆ˜ */
 	private int carNum;
 	private String carName;
 	private int carPrice;
@@ -12,7 +12,7 @@ public class Car {
 	private String carEfficiency;
 	private String carImgSrc;
 	
-	/* »ı¼ºÀÚ */ 
+	/* ìƒì„±ì */ 
 	public Car() {}
 	public Car(int carNum, String carName,int carPrice, String carSize, int carMaxDistance, String carEfficiency, String carImgSrc) {
 		super();
@@ -25,7 +25,7 @@ public class Car {
 		this.carImgSrc = carImgSrc;
 	}
 	
-	/* Á¢±ÙÀÚ, ¼öÁ¤ÀÚ */
+	/* ì ‘ê·¼ì, ìˆ˜ì •ì */
 	public int getCarNum() {
 		return carNum;
 	}
@@ -69,7 +69,7 @@ public class Car {
 		this.carName = carName;
 	}
 	
-	/* ÇÔ¼ö */
+	/* í•¨ìˆ˜ */
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
@@ -90,5 +90,4 @@ public class Car {
 		builder.append("]");
 		return builder.toString();
 	}
-	
 }//end of Car
