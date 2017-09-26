@@ -32,15 +32,14 @@ public class MemberDAO {
 		try {
 			pstmt = con.prepareStatement("INSERT INTO member VALUES(?,?,?,?,?,?,?)");
 			pstmt.setString(1,m.getMemberMail());
-//			List<String> list = SHAUtil.encodePwd(m.getMemberPwd());
-//			pstmt.setString(2,list.get(1));
+			List<String> list = SHAUtil.encodePwd(m.getMemberPwd());
+			pstmt.setString(2,list.get(1));
 			pstmt.setString(2, m.getMemberPwd());
 			pstmt.setString(3,m.getMemberName());
 			pstmt.setString(4,m.getMemberAddr());
 			pstmt.setString(5,m.getMemberPhone());
 			pstmt.setInt(6,0);//�씪諛섑쉶�썝 0 愿�由ъ옄 1
-//			pstmt.setString(7, list.get(0));
-			pstmt.setString(7, "11");
+			pstmt.setString(7, list.get(0));
 			result = pstmt.executeUpdate();
 		}catch (SQLException e){
 			e.printStackTrace();
