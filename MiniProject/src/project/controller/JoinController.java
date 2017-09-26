@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import project.dao.MemberDAO;
 import project.domain.Member;
 
-@WebServlet("/JoinController")
+@WebServlet("/Join.do")
 public class JoinController extends HttpServlet {
        
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -22,7 +22,7 @@ public class JoinController extends HttpServlet {
 			if(result==-1) {
 				new Exception();
 			}
-			response.sendRedirect("index.jsp");
+			response.sendRedirect("main.jsp");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

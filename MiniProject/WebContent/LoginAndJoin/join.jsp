@@ -11,10 +11,10 @@
 		<h2 class="w3-text-blue modal-head"><b>회원 가입</b></h2>	
 	</div>
 	<div class = "modal-body form-body">
-	<form action="../Join.do" class="w3-container w3-margin">
+	<form action="Join.do" method = "post" class="w3-container w3-margin">
 		<div class="w3-row w3-section">
 			<div class="w3-rest">
-				<input class="w3-input w3-border" name="memberID" type="email"
+				<input id = "id" class="w3-input w3-border" name="memberID" type="email"
 					placeholder="이메일">
 			</div>
 		</div>

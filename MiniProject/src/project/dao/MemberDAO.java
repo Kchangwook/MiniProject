@@ -31,7 +31,7 @@ public class MemberDAO {
 		PreparedStatement pstmt = null;
 		int result = -1;
 		try {
-			pstmt = con.prepareStatement("INSERT INTO member VALUES(?,?,?,?,?,?");
+			pstmt = con.prepareStatement("INSERT INTO member VALUES(?,?,?,?,?,?,?)");
 			pstmt.setString(1,m.getMemberMail());
 			List<String> list = SHAUtil.encodePwd(m.getMemberPwd());
 			pstmt.setString(2,list.get(1));
@@ -42,6 +42,7 @@ public class MemberDAO {
 			pstmt.setString(7, list.get(0));
 			result = pstmt.executeUpdate();
 		}catch (SQLException e){
+			e.printStackTrace();
 			throw new Exception("회원 가입에 실패하였습니다.");
 		}finally {
 			DBUtil.close(con, pstmt);
