@@ -19,11 +19,15 @@
     <!-- Join -->
     <link rel="stylesheet" href="/MiniProject/css/w3.css">
 	<link rel="stylesheet" href="/MiniProject/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="/MiniProject/css/header.css">
 <style>
-*{
-	padding:0px;
-	margin:0px;
-	display:block;
+.car-box{
+	height:380px;
+	padding-top: 10px;
+}
+.car-img{
+	width: 100%;
 }
 </style>
 </head>
@@ -32,21 +36,28 @@
 		<jsp:include page="../Domain/header.jsp" />
 		
 	<!-- Body -->
+	<div class="w3-container w3-teal" style = "display:block;">
+		<h1>Summer Holiday</h1>
+	</div>
 	<div class="w3-row-padding w3-margin-top">
 		<section id="contact" class="w3-row-padding w3-margin-top">
-		<c:forEach var = "car" items = "${carList }">
+		<c:forEach var = "car" items = "${carList }" varStatus = "status">
 			<div class="w3-third">
-				<div class="w3-card-2">
-					<img src="${car.carImgSrc}" style="width: 100%">
-					${car.carImgSrc}
+				<div class="w3-card-2 car-box">
+					<img src="${car.carImgSrc}" class = "car-img">
 					<div class="w3-container">
-						<h4>${car.carName }</h4>
+						<h4><b>${car.carName }</b></h4>
 					</div>
 				</div>
 			</div>
+			<c:if test = "${status.index%3 == 2 }">
+				</section>
+				<section id="contact" class="w3-row-padding w3-margin-top">
+			</c:if>
 		</c:forEach>
-		</div>
 		</section>
+		</section>
+		</div>
 	<!-- Footer -->
 	<footer class="text-center">
 	 <jsp:include page="../Domain/footer.jsp" />

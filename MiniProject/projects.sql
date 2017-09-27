@@ -1,4 +1,6 @@
 
+select * from member;
+
 --?Öå?ù¥Î∏? ?ôï?ù∏
 select * from tab;
 
@@ -19,25 +21,15 @@ car_num	            NUMBER,
 car_name            VARCHAR2(50)    not null,
 car_price	        NUMBER          not null,
 car_size	        VARCHAR2(20)    not null,
-car_max_distance	NUMBER          not null,
-car_efficiency	    VARCHAR2(20)    not null,
+car_max_distance	NUMBER          null,
+car_efficiency	    VARCHAR2(20)    null,
 car_img_src	        VARCHAR2(200)   not null,
 constraint car_num_pk primary key(car_num)
 );
 
-create table Station(
-station_num	        NUMBER,
-station_addr	    VARCHAR2(255)   not null,
-station_csnm	    VARCHAR2(100)   not null,
-station_cpnm	    VARCHAR2(100)   not null,
-station_lat	        NUMBER          not null,
-station_longi	    NUMBER          not null,
-constraint station_num_pk primary key(station_num)
-);
-
 create table Member(
-member_mail	        VARCHAR2(50),
-member_pwd	        VARCHAR2(50)    not null,
+member_mail	        VARCHAR2(150),
+member_pwd	        VARCHAR2(150)    not null,
 member_name	        VARCHAR2(50)    not null,
 member_addr	        VARCHAR2(255)   not null,
 member_phone	    VARCHAR2(15)    not null,
@@ -74,7 +66,7 @@ station_csid                NUMBER(5)       not null,
 station_cptp                NUMBER(2)       not null, 
 station_cpstat              NUMBER(2)       not null,
 station_statupdate          VARCHAR2(100)    not null,
-CONSTRAINT station_pk PRIMARY KEY(cpid)
+CONSTRAINT station_pk PRIMARY KEY(station_cpid)
 );
 select * from station;
 commit;
