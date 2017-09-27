@@ -22,7 +22,7 @@
           <ul class="navbar-nav ml-auto head-right">
           	<c:if test="${not empty sessionScope.id}">
           	<li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#portfolio">마이 페이지</a>
+              <a class="nav-link js-scroll-trigger" href="${pageContext.request.contextPath }/test.jsp">마이 페이지</a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="${pageContext.request.contextPath }/Introduce/introduce.jsp">전기차 소개</a>

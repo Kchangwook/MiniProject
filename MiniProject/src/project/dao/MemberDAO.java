@@ -68,7 +68,7 @@ public class MemberDAO {
 		return list;
 	}
 	
-	//Member Data Delete by Admin
+	//Member Data Delete by User
 	public boolean delete(String memberMail) throws SQLException {
 		Connection con = DBUtil.getConnection();
 		PreparedStatement pstmt = null;
