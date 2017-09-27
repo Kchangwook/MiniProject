@@ -14,11 +14,10 @@
 }
 .detail-img{
 	position:relative;
-	top:90px;
-	left:-110px;
+	left:-30px;
 }
 .detail-declare{
 	position:absolute;
-	top:260px;
+	top:45px;
 	left:52%;
 }

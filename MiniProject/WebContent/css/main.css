@@ -22,13 +22,13 @@
 	z-index:-800;
 }
 .declare{
-	background-image: url(img/img_main/evcharger.png);
+	background-image: url(../img/img_main/evcharger.png);
 	background-size: 500px;
 	background-position: right;
 	background-repeat: no-repeat;
 }
 .form-body{
-	background-image:url("img/img_etc/evcar.png");
+	background-image:url("../img/img_etc/evcars.png");
 	background-size:70%;
 	background-repeat: no-repeat;
 	background-position: center;

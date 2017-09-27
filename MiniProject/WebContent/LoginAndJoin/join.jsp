@@ -51,7 +51,7 @@
 		<div class="w3-row w3-section">
 			<div class="w3-rest">
 				<input class="w3-input w3-border" name="memberPhone" type="text"
-					placeholder="전화번호" pattern="[0-9]{11}" title="'-'를 뺀 휴대전화 번호 10~11자리를 입력해주세요.">
+					placeholder="전화번호" pattern="[0-9]{11}" title="'-'를 뺀 휴대전화 번호 11자리를 입력해주세요.">
 			</div>
 		</div>
 		
