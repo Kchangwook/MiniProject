@@ -5,3 +5,20 @@
 .header{
 	background-color:#001379;
 }
+.head-right{
+	position:relative;
+	right:-150px;
+}
+.detail-box{
+	height:500px;
+}
+.detail-img{
+	position:relative;
+	top:90px;
+	left:-110px;
+}
+.detail-declare{
+	position:absolute;
+	top:260px;
+	left:52%;
+}

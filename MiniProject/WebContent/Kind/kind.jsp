@@ -20,6 +20,8 @@
     <link rel="stylesheet" href="/MiniProject/css/w3.css">
 	<link rel="stylesheet" href="/MiniProject/css/font-awesome.min.css">
 	
+		<!-- main -->
+	<link rel="stylesheet" href="/MiniProject/css/main.css">
 	<link rel="stylesheet" href="/MiniProject/css/header.css">
 <style>
 .car-box{
@@ -29,6 +31,10 @@
 .car-img{
 	width: 100%;
 }
+.car-text{
+	margin:40px 40px;
+	font-size:40pt;
+}
 </style>
 </head>
 <body>
@@ -36,18 +42,20 @@
 		<jsp:include page="../Domain/header.jsp" />
 		
 	<!-- Body -->
-	<div class="w3-container w3-teal" style = "display:block;">
-		<h1>Summer Holiday</h1>
+	<div class="w3-container text-center" style = "display:block;">
+		<h1 class = "car-text text-declare"><b>전기차 소개</b></h1>
 	</div>
 	<div class="w3-row-padding w3-margin-top">
 		<section id="contact" class="w3-row-padding w3-margin-top">
 		<c:forEach var = "car" items = "${carList }" varStatus = "status">
 			<div class="w3-third">
 				<div class="w3-card-2 car-box">
+					<a href = "${pageContext.request.contextPath }/Kind.do?command=carNum&num=${car.carNum}">
 					<img src="${car.carImgSrc}" class = "car-img">
 					<div class="w3-container">
 						<h4><b>${car.carName }</b></h4>
 					</div>
+					</a>
 				</div>
 			</div>
 			<c:if test = "${status.index%3 == 2 }">

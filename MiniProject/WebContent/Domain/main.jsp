@@ -56,7 +56,7 @@
         <h2 class="text-ev text-left">전기자동차, 무엇이 궁금하세요?</h2><br>
         <div class="row">
           <div class="col-lg-10 mr-auto">
-            <p>전기자동차의 작동원리 및 구조에 대한 내용과 충전시 주의사항에<br> ${page }관한 내용, 
+            <p>전기자동차의 작동원리 및 구조에 대한 내용과 충전시 주의사항에<br>관한 내용, 
             	전기자동차의 관리 방법 및 운행 요령에 대한 <br>자세한 내용을 확인 하실 수 있습니다.</p>
             <div class = "ml-auto" align = "right">
         		<img class = "main-car" src = "../img/img_main/evcar.png">

@@ -19,6 +19,7 @@ public class LoginController extends HttpServlet {
     //Login Service
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
+		String url = "";
 		MemberDAO member = MemberDAO.getInstance();
 			try {
 //				if(member.login(request.getParameter("id"), request.getParameter("pwd"))) {
@@ -28,7 +29,7 @@ public class LoginController extends HttpServlet {
 				if(m != null) {
 					request.getSession().setAttribute("id", request.getParameter("id"));
 				}else {
-					request.setAttribute("error","오류가 발생했습니다.");
+					url = "?msg=error";
 				}
 //			} 
 //			catch (NoSuchAlgorithmException e) {
@@ -36,7 +37,7 @@ public class LoginController extends HttpServlet {
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
-		//request.getRequestDispatcher("Domain/main.jsp").forward(request, response);
-		response.sendRedirect("Domain/main.jsp");
+//		request.getRequestDispatcher("Domain/main.jsp").forward(request, response);
+		response.sendRedirect("Domain/main.jsp"+url);
 	}
 }//end of LoginController

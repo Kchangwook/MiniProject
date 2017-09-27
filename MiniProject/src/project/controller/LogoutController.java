@@ -13,6 +13,6 @@ public class LogoutController extends HttpServlet {
     //Logout Service
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getSession().removeAttribute("id");
-		response.sendRedirect("main.jsp");
+		response.sendRedirect("Domain/main.jsp");
 	}
 }//end of LogoutController

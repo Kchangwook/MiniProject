@@ -45,6 +45,7 @@ public class KindController extends HttpServlet {
 	
 	//Kind[Car] Detail
 	private void detail(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("hello");
 		Car car = null;
 		try {
 			car = CarDAO.getInstance().getCarNum(Integer.parseInt(request.getParameter("num")));

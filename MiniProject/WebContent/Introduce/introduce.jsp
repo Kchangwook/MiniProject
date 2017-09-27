@@ -16,6 +16,12 @@
     
     <!-- Custom styles for this template -->
     <link href="../css/freelancer.min.css" rel="stylesheet">
+    
+    <!-- Join -->
+    <link rel="stylesheet" href="/MiniProject/css/w3.css">
+	<link rel="stylesheet" href="/MiniProject/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="/MiniProject/css/header.css">
 </head>
 <body>
 	<!-- Header -->

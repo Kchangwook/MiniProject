@@ -11,15 +11,15 @@
         <div class="container">
           <div class="row">
             <div class="footer-col col-md-4">
-              <h3>Location</h3>
+              <h3><b>Location</b></h3>
               <p>Some Place In Korea</p>
             </div>
             <div class="footer-col col-md-4">
-              <h3>About Us</h3>
+              <h3><b>About Us</b></h3>
               <p>We wanna only leave work on time</p>
             </div>
             <div class="footer-col col-md-4">
-              <h3>Phone & Email</h3>
+              <h3><b>Phone & Email</b></h3>
               <p>070-5039-5837</p>
               <p>yssong@kosta.or.kr</p>
             </div>
