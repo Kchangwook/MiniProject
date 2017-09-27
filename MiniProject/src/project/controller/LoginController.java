@@ -24,6 +24,7 @@ public class LoginController extends HttpServlet {
 			try {
 	//
 				if(member.login(request.getParameter("id"), request.getParameter("pwd"))) {
+					System.out.println("들어감");
 					Member logined = member.getMember(request.getParameter("id"));
 					request.getSession().setAttribute("id", logined);
 	//

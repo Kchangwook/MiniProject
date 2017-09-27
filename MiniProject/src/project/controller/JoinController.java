@@ -23,10 +23,12 @@ public class JoinController extends HttpServlet {
 			result = member.add(new Member(request.getParameter("memberID"),request.getParameter("memberPwd"),request.getParameter("memberName"),request.getParameter("memberAddr"),request.getParameter("memberPhone"),0));
 			if(result==-1) {
 				new Exception();
+			}else {
+				System.out.println(request.getParameter("memberID")+"가입 성공");
 			}
-			response.sendRedirect("Domain/main.jsp");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		response.sendRedirect("Domain/main.jsp");
 	}
 }//end of JoinController

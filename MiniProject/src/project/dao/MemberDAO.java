@@ -33,7 +33,6 @@ public class MemberDAO {
 			pstmt.setString(1,m.getMemberMail());
 			List<String> list = SHAUtil.encodePwd(m.getMemberPwd());
 			pstmt.setString(2,list.get(1));
-			pstmt.setString(2, m.getMemberPwd());
 			pstmt.setString(3,m.getMemberName());
 			pstmt.setString(4,m.getMemberAddr());
 			pstmt.setString(5,m.getMemberPhone());
