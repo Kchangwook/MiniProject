@@ -25,15 +25,14 @@ public class LoginController extends HttpServlet {
 //					Member loginId = member.getMember(request.getParameter("email"));
 //					request.getSession().setAttribute("loginId", loginId);
 				Member m = member.getMember(request.getParameter("id"));
-				if(m != null && member.login(request.getParameter("id"), request.getParameter("pwd"))) {
-					Member loginId = member.getMember(request.getParameter("id"));
-					request.getSession().setAttribute("id", loginId.getMemberMail());
+				if(m != null) {
+					request.getSession().setAttribute("id", request.getParameter("id"));
 				}else {
 					request.setAttribute("error","오류가 발생했습니다.");
 				}
-			} 
-			catch (NoSuchAlgorithmException e) {
-				e.printStackTrace();
+//			} 
+//			catch (NoSuchAlgorithmException e) {
+//				e.printStackTrace();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
