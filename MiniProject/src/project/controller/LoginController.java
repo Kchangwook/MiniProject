@@ -22,22 +22,23 @@ public class LoginController extends HttpServlet {
 		String url = "";
 		MemberDAO member = MemberDAO.getInstance();
 			try {
-//				if(member.login(request.getParameter("id"), request.getParameter("pwd"))) {
-//					Member loginId = member.getMember(request.getParameter("email"));
-//					request.getSession().setAttribute("loginId", loginId);
-				Member m = member.getMember(request.getParameter("id"));
-				if(m != null) {
-					request.getSession().setAttribute("id", request.getParameter("id"));
+	//
+				if(member.login(request.getParameter("id"), request.getParameter("pwd"))) {
+					Member logined = member.getMember(request.getParameter("id"));
+					request.getSession().setAttribute("id", logined);
+	//
+				//Member m = member.getMember(request.getParameter("id"));
+				//if(m != null) {
+				//	request.getSession().setAttribute("id", request.getParameter("id"));
 				}else {
-					url = "?msg=error";
+					url="error";
 				}
-//			} 
-//			catch (NoSuchAlgorithmException e) {
-//				e.printStackTrace();
+			} 
+			catch (NoSuchAlgorithmException e) {
+				e.printStackTrace();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
-//		request.getRequestDispatcher("Domain/main.jsp").forward(request, response);
 		response.sendRedirect("Domain/main.jsp"+url);
 	}
 }//end of LoginController
