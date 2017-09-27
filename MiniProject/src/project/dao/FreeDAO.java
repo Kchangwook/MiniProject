@@ -13,7 +13,7 @@ import project.util.DBUtil;
 public class FreeDAO {
 	
 	private static FreeDAO free;
-	
+	private FreeDAO() {}
 	public static FreeDAO getInstance() {
 		if(free==null) {
 			free = new FreeDAO();
@@ -21,9 +21,7 @@ public class FreeDAO {
 		return free;
 	}
 	
-	private FreeDAO() {}
-	
-	//자유게시판 생성자료 데이터베이스에 추가
+	//Free Data Insert
 	public int add(Free f) throws SQLException{
 		Connection con = DBUtil.getConnection();
 		PreparedStatement pstmt = null;
@@ -42,7 +40,7 @@ public class FreeDAO {
 		return result;
 	}
 	
-	//자유게시판 자료 리스트 보여주기
+	//Free List
 	public List<Free> table() throws SQLException{
 		Connection con = DBUtil.getConnection();
 		PreparedStatement pstmt = null;
@@ -60,7 +58,7 @@ public class FreeDAO {
 		return list;
 	}
 	
-	//자유게시판 자료 삭제(게시자&관리자)
+	//Free Data Delete
 	public boolean delete(int num) throws SQLException {
 		Connection con = DBUtil.getConnection();
 		PreparedStatement pstmt = null;
@@ -75,7 +73,7 @@ public class FreeDAO {
 		return result;
 	}
 	
-	//자유게시판 자료 수정
+	//Free Data Update
 	public int update(Free f) throws Exception {
 		Connection con = DBUtil.getConnection();
 		PreparedStatement pstmt = null;

@@ -11,7 +11,18 @@ import project.domain.Car;
 import project.util.DBUtil;
 
 public class CarDAO {
-	public static List<Car> getCar() throws SQLException {
+	
+	private static CarDAO car;
+	private CarDAO() {}
+	public static CarDAO getInstance() {
+		if(car==null) {
+			car = new CarDAO();
+		}
+		return car;
+	}
+	
+	//Car List
+	public List<Car> getCar() throws SQLException {
 		Connection con = DBUtil.getConnection();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -28,7 +39,9 @@ public class CarDAO {
 		}
 		return list;
 	}
-	public static Car getCarNum(int num) throws SQLException {
+	
+	//Car Detail
+	public Car getCarNum(int num) throws SQLException {
 		Connection con = DBUtil.getConnection();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -44,6 +57,5 @@ public class CarDAO {
 			DBUtil.close(con, pstmt, rs);
 		}
 		return car;
-		
 	}
-}
+}//end of CarDAO

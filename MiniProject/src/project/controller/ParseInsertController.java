@@ -11,10 +11,11 @@ import project.dao.StationDAO;
 
 @WebServlet("/parse.do")
 public class ParseInsertController extends HttpServlet {
-
+	
+	//Parse Service - Parse Data and Insert Data
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			try {
-				new StationDAO().add();
+				StationDAO.getInstance().add();
 			} catch (Exception e) {
 				request.setCharacterEncoding("UTF-8");
 				response.setContentType("text/html;charset=UTF-8");
@@ -22,5 +23,4 @@ public class ParseInsertController extends HttpServlet {
 				response.getWriter().println(e.getMessage());
 			}
 	}
-
-}
+}//end of ParseInsertController

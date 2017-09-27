@@ -15,16 +15,15 @@ import project.util.SHAUtil;
 public class MemberDAO {
 	
 	private static MemberDAO member;
-	
+	private MemberDAO() {}
 	public static MemberDAO getInstance() {
 		if(member==null) {
 			member = new MemberDAO();
 		}
 		return member;
 	}
-	private MemberDAO() {}
 	
-	//�쉶�썝媛��엯
+	//Member Join Data Insert
 	public int add(Member m) throws Exception {
 		Connection con = DBUtil.getConnection();
 		PreparedStatement pstmt = null;
@@ -38,12 +37,12 @@ public class MemberDAO {
 			pstmt.setString(3,m.getMemberName());
 			pstmt.setString(4,m.getMemberAddr());
 			pstmt.setString(5,m.getMemberPhone());
-			pstmt.setInt(6,0);//�씪諛섑쉶�썝 0 愿�由ъ옄 1
+			pstmt.setInt(6,0);//관리자는 1, 일반유저는 0
 			pstmt.setString(7, list.get(0));
 			result = pstmt.executeUpdate();
 		}catch (SQLException e){
 			e.printStackTrace();
-			throw new Exception("�쉶�썝 媛��엯�뿉 �떎�뙣�븯���뒿�땲�떎.");
+			throw new Exception("오류가 발생했습니다.");
 		}finally {
 			DBUtil.close(con, pstmt);
 		}
@@ -51,7 +50,7 @@ public class MemberDAO {
 		
 	}
 	
-	//�쉶�썝�뀒�씠釉� 蹂닿린(愿�由ъ옄)
+	//Member List
 	public List<Member> table() throws SQLException{
 		Connection con = DBUtil.getConnection();
 		PreparedStatement pstmt = null;
@@ -69,7 +68,7 @@ public class MemberDAO {
 		return list;
 	}
 	
-	//�쉶�썝 �궘�젣(愿�由ъ옄)
+	//Member Data Delete by Admin
 	public boolean delete(String memberMail) throws SQLException {
 		Connection con = DBUtil.getConnection();
 		PreparedStatement pstmt = null;
@@ -84,7 +83,7 @@ public class MemberDAO {
 		return result;
 	}
 	
-	//�쉶�썝 濡쒓렇�씤
+	//Member Login
 	public boolean login(String memberMail,String memberPwd) throws SQLException, NoSuchAlgorithmException {
 		Connection con = DBUtil.getConnection();
 		PreparedStatement pstmt = null;
@@ -103,7 +102,7 @@ public class MemberDAO {
 		return result;
 	}
 	
-	//�븘�씠�뵒�뿉 �빐�떦�븯�뒗 硫ㅻ쾭
+	//Member Login Connect
 	public Member getMember(String id) throws SQLException {
 		Connection con = DBUtil.getConnection();
 		PreparedStatement pstmt = null;
@@ -122,7 +121,7 @@ public class MemberDAO {
 		return loginId;
 	}
 	
-	//�쉶�썝�젙蹂� �닔�젙
+	//Member Data Update
 	public int update(Member m) throws Exception{
 		Connection con = DBUtil.getConnection();
 		PreparedStatement pstmt = null;
@@ -138,7 +137,7 @@ public class MemberDAO {
 			result = pstmt.executeUpdate();
 		}catch(SQLException e) {
 			e.printStackTrace();
-			throw new Exception("�쉶�썝 �젙蹂� �닔�젙�뿉 �떎�뙣�뻽�뒿�땲�떎.");
+			throw new Exception("회원 정보 수정이 실패하였습니다.");
 		}finally {
 			DBUtil.close(con, pstmt);
 		}

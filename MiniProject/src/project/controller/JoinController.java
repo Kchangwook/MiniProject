@@ -13,7 +13,8 @@ import project.domain.Member;
 
 @WebServlet("/Join.do")
 public class JoinController extends HttpServlet {
-       
+      
+	//Join Service
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		MemberDAO member = MemberDAO.getInstance();
@@ -23,9 +24,9 @@ public class JoinController extends HttpServlet {
 			if(result==-1) {
 				new Exception();
 			}
-			response.sendRedirect("main.jsp");
+			response.sendRedirect("Domain/main.jsp");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-}
+}//end of JoinController

@@ -13,14 +13,13 @@ import project.util.DBUtil;
 public class FAQDAO {
 	
 	private static FAQDAO faq;
-	
+	private FAQDAO() {}
 	public static FAQDAO getInstance() {
 		if(faq==null) {
 			faq = new FAQDAO();
 		}
 		return faq;
 	}
-	private FAQDAO() {}
 	
 	//FAQ List
 	public List<FAQ> table() throws SQLException{
@@ -38,6 +37,24 @@ public class FAQDAO {
 			DBUtil.close(con, pstmt, rs);
 		}
 		return list;
-		
+	}
+	
+	//FAQ Detail
+	public FAQ detail(int num) throws SQLException {
+		Connection con = DBUtil.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		FAQ faq = null;
+		try {
+			pstmt = con.prepareStatement("SELECT * FROM faq WHERE faq_num=?");
+			pstmt.setInt(1, num);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				faq = new FAQ(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4));
+			}
+		}finally {
+			DBUtil.close(con, pstmt, rs);
+		}
+		return faq;
 	}
 }//end of FAQDAO

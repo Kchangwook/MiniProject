@@ -16,6 +16,7 @@ import project.domain.Free;
 @WebServlet("/free.do")
 public class FreeController extends HttpServlet {
 
+	//Free Service
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		String command = request.getParameter("command");
@@ -29,6 +30,8 @@ public class FreeController extends HttpServlet {
 			update(request,response);
 		}
 	}
+	
+	//Free Data Add
 	private void add(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int result = -1;
 			try {
@@ -45,6 +48,7 @@ public class FreeController extends HttpServlet {
 			}
 	}
 	
+	//Free Data List
 	private void table(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		List<Free> list = null;
 		try {
@@ -60,6 +64,7 @@ public class FreeController extends HttpServlet {
 		request.getRequestDispatcher("freeList.jsp").forward(request, response);
 	}
 	
+	//Free Data Delete
 	private void delete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		boolean result = false;
 		try {
@@ -77,6 +82,7 @@ public class FreeController extends HttpServlet {
 		request.getRequestDispatcher("freeList.jsp").forward(request, response);
 	}
 	
+	//Free Data Update
 	private void update(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Free f = (Free) request.getSession().getAttribute("id");
 		f.setFreeTitle(request.getParameter("fTitle"));
@@ -89,5 +95,4 @@ public class FreeController extends HttpServlet {
 			request.getRequestDispatcher("freeList.jsp").forward(request, response);
 		}
 	}
-	
-}
+}//end of FreeController

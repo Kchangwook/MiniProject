@@ -12,7 +12,8 @@ import project.domain.Member;
 
 @WebServlet("/update.do")
 public class updateController extends HttpServlet {
-       
+	
+    //Update Service
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		MemberDAO member = MemberDAO.getInstance();
@@ -28,5 +29,4 @@ public class updateController extends HttpServlet {
 		}
 		response.sendRedirect("index.jsp");
 	}
-	
 }//end of updateController

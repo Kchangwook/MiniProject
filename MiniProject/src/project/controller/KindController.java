@@ -13,42 +13,41 @@ import javax.servlet.http.HttpServletResponse;
 import project.dao.CarDAO;
 import project.domain.Car;
 
-/**
- * Servlet implementation class KindController
- */
 @WebServlet("/Kind.do")
 public class KindController extends HttpServlet {
 	
-	
+	//Kind[Car] Service
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		String command = request.getParameter("command");
 		if(command.equals("getList")) {
-			getList(request,response);
+			table(request,response);
 		}else if(command.equals("carNum")) {
-			carNum(request,response);
+			detail(request,response);
 		}
 	}
 	
-	private void getList(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	//Kind[Car] Data List
+	private void table(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		List<Car> list = null;
 		try {
-			list = CarDAO.getCar();
+			list = CarDAO.getInstance().getCar();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		if(list==null) {
-			request.setAttribute("error", "�삤瑜섍� 諛쒖깮�뻽�뒿�땲�떎.");
+			request.setAttribute("error", "오류가 발생했습니다.");
 		}else {
 			request.setAttribute("carList", list);
 		}
 		request.getRequestDispatcher("Kind/kind.jsp").forward(request, response);
 	}
 	
-	private void carNum(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	//Kind[Car] Detail
+	private void detail(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Car car = null;
 		try {
-			car = CarDAO.getCarNum(Integer.parseInt(request.getParameter("num")));
+			car = CarDAO.getInstance().getCarNum(Integer.parseInt(request.getParameter("num")));
 
 		} catch (NumberFormatException e) {
 			e.printStackTrace();
@@ -56,14 +55,14 @@ public class KindController extends HttpServlet {
 			e.printStackTrace();
 		}
 		if(car==null) {
-			request.setAttribute("error", "�삤瑜섍� 諛쒖깮�뻽�뒿�땲�떎.");
+			request.setAttribute("error", "오류가 발생했습니다.");
 		}else {
 			if(car.getCarNum()==Integer.parseInt(request.getParameter("num"))) {
 				request.setAttribute("carDetail", car);
 			}else {
-				request.setAttribute("error", "�삤瑜섍� 諛쒖깮�뻽�뒿�땲�떎.");
+				request.setAttribute("error", "오류가 발생했습니다.");
 			}
 		}
-		request.getRequestDispatcher("carDetail.jsp").forward(request, response);
+		request.getRequestDispatcher("Kind/carDetail.jsp").forward(request, response);
 	}
-}
+}//end of KindController
